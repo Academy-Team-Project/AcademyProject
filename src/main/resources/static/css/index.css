@@ -1,0 +1,47 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Source+Code+Pro:ital@1&display=swap');
+
+
+body {
+	background-size: 100%;
+	background-image: url("../images/index_main_01.jpg");
+	background-repeat: no-repeat;
+	
+}
+table {
+	background-color: #faf4e0;
+	padding-bottom: 15px;
+} 
+
+td {
+	font-family: 'Source Code Pro', monospace;
+	font-size: 18px;
+}
+
+span.index_title01 {
+	font-family: 'Source Code Pro', monospace;
+	font-size: 60px;
+	font-weight: bold;
+}
+
+input.button {
+	width: 150px;
+	padding: 3px;
+	background-color: #f4511e;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	font-size: 14px;
+	margin: 3px 2px;
+	opacity: 0.6;
+	transition: 0.3s;
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+input.button:hover {
+	opacity: 1
+}
