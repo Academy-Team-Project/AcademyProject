@@ -13,6 +13,7 @@
   <div class="screen">
     <div class="screen_content">
       <img alt="" src="${pageContext.request.contextPath }/resources/images/ABC_logo.jpg" class="index_img">
+      
       <form action="loginOk" method="post" name="login_form" class="login" align="center">
         <div class="login_field">
           <h4>
@@ -20,17 +21,14 @@
 			  <input class="radio" type="radio" name="memberType"> 교사 
 			  <input class="radio" type="radio" name="memberType"> 직원
 		  </h4>
-		  <br><br><br>
-          <i class="login_icon fas fa-user"></i>
+		  <br><br><br>        
           <input type="text" class="login_input" placeholder="User ID" >
         </div>
-        <div class="login_field">
-          <i class="login_icon fas fa-lock"></i>
+        <div class="login_field">    
           <input type="password" class="login_input" placeholder="Password">
         </div>
         <button type="button" class="button login_submit" onclick="loginCheck()">
-          <span class="button_text">Log In Now</span>
-          <i class="button_icon fas fa-chevron-right"></i>
+          <span class="button_text">Log In Now</span> 
         </button>       
       </form>
       

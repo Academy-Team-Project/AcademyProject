@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+
+span.content_title {
+	font-size: 20px;
+	vertical-align:top;
+}
+
+.board_title {
+	background-color: rgba(0,0,0,0.3);
+}
+
+.board_content {
+	height:30px;
+ 	overflow-x:auto;
+  	margin-top: 0px;
+  	border: 1px solid rgba(255,255,255,0.3);
+}

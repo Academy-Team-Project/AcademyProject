@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.agree {
+	width: 1200px; 
+	height: 80px;
+	border: 1px solid #000;
+	overflow-y: scroll;
+	
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.ok_btn {
+	align-content: center;
+	margin-left: 600px;
+}
