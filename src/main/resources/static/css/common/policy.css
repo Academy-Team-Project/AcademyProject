@@ -11,6 +11,8 @@
 }
 
 .ok_btn {
-	align-content: center;
-	margin-left: 600px;
+	width: 30px;
+	/*align-content: center;*/
+	margin-left: 330px;
+	cursor: pointer;
 }

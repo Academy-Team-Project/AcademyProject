@@ -6,6 +6,11 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/footer.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/backstyle.css">
 <meta charset="UTF-8">
+<script>
+		function load(URL){
+			newWin = window.open(URL,"mywin", "left=300, top=100, width=800, height=600");
+		}
+</script>
 <title>Footer</title>
 </head>
 <body>
@@ -19,7 +24,8 @@
 	<!-- 하단 내용 -->
 		<tr height="25">
 			<td class="footer_text">
-				<a href="${pageContext.request.contextPath }/include/policy">개인정보취급방침</a>			
+				<%-- <a href="${pageContext.request.contextPath }/include/policy">개인정보취급방침</a> --%>
+				<a href="javascript:load('/include/policy')">개인정보취급방침</a><br>			
 			</td>
 		</tr> 
 		<tr height="25">

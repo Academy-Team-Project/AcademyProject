@@ -14,7 +14,7 @@
     <div class="screen_content">
       <img alt="" src="${pageContext.request.contextPath }/resources/images/ABC_logo.jpg" class="index_img">
       
-      <form action="loginOk" method="post" name="login_form" class="login" align="center">
+      <form action="notice/notice_list" method="post" name="login_form" class="login" align="center">
         <div class="login_field">
           <h4>
 	          <input class="radio" type="radio" name="memberType"> 학생 
@@ -27,7 +27,7 @@
         <div class="login_field">    
           <input type="password" class="login_input" placeholder="Password">
         </div>
-        <button type="button" class="button login_submit" onclick="loginCheck()">
+        <button type="submit" class="button login_submit" onclick="loginCheck()">
           <span class="button_text">Log In Now</span> 
         </button>       
       </form>

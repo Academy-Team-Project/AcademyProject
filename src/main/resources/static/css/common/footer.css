@@ -12,3 +12,8 @@ body {
 	text-align: center;
 	
 }
+td a:link,
+td a:visited{
+	color: #FFFFFF;
+	text-decoration:none;
+}

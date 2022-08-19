@@ -170,7 +170,8 @@
 	</p>
 	<br><br>
 	
-		<input type="button" value="확인" onclick="history.back(-1)" class="ok_btn">
+		<!-- <input type="button" value="확인" onclick="history.back(-1)" class="ok_btn"> -->
+		<input type="buton" value="확인" onclick="self.close()" class="ok_btn">
 	
 	<br><br>
 </body>
