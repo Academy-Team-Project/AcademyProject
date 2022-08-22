@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class WebController {
+public class MainController {
 	
 	@RequestMapping (value = "/")
 	public String login() {
@@ -18,15 +18,23 @@ public class WebController {
 		return "index";
 	}	// 링크로 동작하는 화면 반환
 
+/*	
 	@RequestMapping (value = "/notice/notice_list")
 	public String notice_list() {
 		
 		return "/notice/notice_list";
 	}	// 메인 공지사항 메뉴로 이동하는 화면 반환
+*/	
 	
 	@RequestMapping (value = "include/policy")
 	public String policy() {
 		
 		return "/include/policy";
+	}
+	
+	@RequestMapping (value = "/logout")
+	public String logout() {
+		
+		return "index";
 	}
 }

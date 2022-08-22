@@ -6,13 +6,12 @@
 	border: 1px solid #000;
 	overflow-y: scroll;
 	
-	display: table-cell;
+	display: inline-table;
 	vertical-align: middle;
 }
 
 .ok_btn {
 	width: 30px;
-	/*align-content: center;*/
 	margin-left: 330px;
 	cursor: pointer;
 }

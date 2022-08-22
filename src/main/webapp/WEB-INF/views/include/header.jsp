@@ -13,14 +13,14 @@
 	<table width="100%" cellspacing="0" border="0" cellpadding="0">
 	<!-- 상단 정보 -->
 		<tr height="80" class="header_top">
-			<td width="90%">
+			<td width="80%">
 				<img alt="" src="${pageContext.request.contextPath }/resources/images/ABC_logo.jpg" class="header_logo">
 			</td>
-			<td width="5%">
+			<td width="15%" align="right">
 				님 환영합니다
 			</td>
 			<td width="5%" class="btn_logout">
-				<button class="btn-hover color">logout</button>
+				<button type="button" class="btn-hover color" onclick="location.href='/logout'">logout</button>
 			</td>	
 		</tr>
 	<!-- 상단 정보 종료 -->	
