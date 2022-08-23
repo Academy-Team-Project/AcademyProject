@@ -12,4 +12,10 @@ public class BoardController {
 		return "/notice/notice_list";
 	}	// 메인 공지사항 메뉴로 이동하는 화면 반환
 	
+	@RequestMapping (value = "/question/question_list")
+	public String question_list() {
+		
+		return "/question/question_list";
+	}	// 질문게시판 메뉴로 이동하는 화면 반환
+	
 }

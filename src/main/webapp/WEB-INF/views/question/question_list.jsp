@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/backstyle.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/board.css">
 <meta charset="UTF-8">
-<title>Notice</title>
+<title>Question</title>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
 			<table width="70%" height="650" cellspacing="0" border="0" cellpadding="10" class="board_table"> 
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
-						<h2>공 지 사 항</h2> <br><br>
+						<h2>질 문 게 시 판</h2> <br><br>
 							<table width="85%" height="70%" border="1" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
 								<thead>
 									<tr>
@@ -44,33 +44,33 @@
 								<tbody>
 									<tr>
 										<td class="board_content">1</td>
-										<td class="board_content">강아지</td>
-										<td class="board_content" width="50%">멍멍</td>
-										<td class="board_content">개</td>
+										<td class="board_content">감자깡</td>
+										<td class="board_content" width="50%">감자전</td>
+										<td class="board_content">감자</td>
 										<td class="board_content">DATE</td>
 									</tr>
 									
 									<tr>
 										<td class="board_content">2</td>
-										<td class="board_content">고양이</td>
-										<td class="board_content" width="50%">야옹</td>
-										<td class="board_content">나비</td>
+										<td class="board_content">고구마깡</td>
+										<td class="board_content" width="50%">맛탕</td>
+										<td class="board_content">고구마</td>
 										<td class="board_content">DATE</td>
 									</tr>
 									
 									<tr>
 										<td class="board_content">3</td>
-										<td class="board_content">병아리</td>
-										<td class="board_content" width="50%">삐약</td>
-										<td class="board_content">영계</td>
+										<td class="board_content">새우깡</td>
+										<td class="board_content" width="50%">비는깡</td>
+										<td class="board_content">새우</td>
 										<td class="board_content">DATE</td>
 									</tr>
 									
 									<tr>
 										<td class="board_content">4</td>
-										<td class="board_content">오리</td>
-										<td class="board_content" width="50%">꽤액</td>
-										<td class="board_content">미운오리새끼</td>
+										<td class="board_content">양파깡</td>
+										<td class="board_content" width="50%">양파링</td>
+										<td class="board_content">양파</td>
 										<td class="board_content">DATE</td>
 									</tr>
 								</tbody>

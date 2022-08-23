@@ -11,9 +11,10 @@
 <body>
 	<nav>
 	  <h3> Menu  </h3>
-		<a href="#"> 공지사항 </a>
-		<a href="#"> 질문게시판 </a>
-		<a href="#"> 정보수정 </a>
+		<a href="/notice/notice_list"> 공지사항 </a>
+		<a href="/question/question_list"> 질문게시판 </a>
+		<a href="/member/memberModify"> 정보수정 </a>
+		<a href="#"> 내 수업 </a>
 		<a href="#"> 수업관리 </a>
 		<a href="#"> 성적관리 </a>
 		<a href="#"> 학생관리 </a>
