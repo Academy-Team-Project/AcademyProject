@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/backstyle.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/board.css">
 <meta charset="UTF-8">
-<title>Notice</title>
+<title>MyLesson List</title>
 </head>
 <body>
 
@@ -56,10 +56,12 @@
 								<tbody>
 									<tr>
 										<td class="lesson_content" align="center">10001</td>
-										<td class="lesson_content"  width="50%">국어A</td>
+										<td class="lesson_content"  width="50%">
+											<a href="#" style="color: #000000;">국어A</a>
+										</td>
 										<td class="lesson_content">이국주</td>
 										<td class="lesson_content">203호</td>
-										<td class="lesson_content">월,금</td>
+										<td class="lesson_content">월,목</td>
 										<td class="lesson_content">20</td>
 										<td class="lesson_content">
 											<input class="button" type="button" value="신청" onclick="location.href=''">
@@ -68,7 +70,9 @@
 									
 									<tr>
 										<td class="lesson_content" align="center">10002</td>
-										<td class="lesson_content"  width="50%">국어B</td>
+										<td class="lesson_content"  width="50%">
+											<a href="#" style="color: #000000;">국어B</a>
+										</td>
 										<td class="lesson_content">송강호</td>
 										<td class="lesson_content">205호</td>
 										<td class="lesson_content">화,금</td>
@@ -80,10 +84,12 @@
 									
 									<tr>
 										<td class="lesson_content" align="center">10013</td>
-										<td class="lesson_content"  width="50%">영어A</td>
+										<td class="lesson_content"  width="50%">
+											<a href="#" style="color: #000000;">영어A</a>
+										</td>
 										<td class="lesson_content">강하늘</td>
 										<td class="lesson_content">301호</td>
-										<td class="lesson_content">화,목</td>
+										<td class="lesson_content">월,화,목</td>
 										<td class="lesson_content">25</td>
 										<td class="lesson_content">
 											<input class="button" type="button" value="신청" onclick="location.href=''">
@@ -92,10 +98,12 @@
 									
 									<tr>
 										<td class="lesson_content" align="center">10021</td>
-										<td class="lesson_content"  width="50%">수학A</td>
+										<td class="lesson_content"  width="50%">
+											<a href="#" style="color: #000000;">수학A</a>
+										</td>
 										<td class="lesson_content">유재석</td>
 										<td class="lesson_content">302호</td>
-										<td class="lesson_content">수,목</td>
+										<td class="lesson_content">수,목,금</td>
 										<td class="lesson_content">25</td>
 										<td class="lesson_content">
 											<input class="button" type="button" value="신청" onclick="location.href=''">
@@ -104,7 +112,9 @@
 									
 									<tr>
 										<td class="lesson_content" align="center">10034</td>
-										<td class="lesson_content"  width="50%">과학A</td>
+										<td class="lesson_content"  width="50%">
+											<a href="#" style="color: #000000;">과학A</a>
+										</td>
 										<td class="lesson_content">이경규</td>
 										<td class="lesson_content">204호</td>
 										<td class="lesson_content">월,수</td>
@@ -116,7 +126,9 @@
 									
 									<tr>
 										<td class="lesson_content" align="center">10038</td>
-										<td class="lesson_content"  width="50%">사회A</td>
+										<td class="lesson_content"  width="50%">
+											<a href="#" style="color: #000000;">사회A</a>
+										</td>
 										<td class="lesson_content">이정재</td>
 										<td class="lesson_content">306호</td>
 										<td class="lesson_content">화,수</td>
@@ -166,18 +178,22 @@
 											<th class="lesson_title">강의실</th>
 											<th class="lesson_title">수업일</th>
 											<th class="lesson_title">수강정원</th>
-											<th class="lesson_title">신청상태</th>
+											<th class="lesson_title">취소</th>
 										</tr>
 								</thead>
 								<tbody>
 										<tr>
 											<td class="lesson_content" align="center">10001</td>
-											<td class="lesson_content"  width="50%">국어A</td>
+											<td class="lesson_content"  width="50%">
+												<a href="#" style="color: #000000;">국어A</a>
+											</td>
 											<td class="lesson_content">이국주</td>
 											<td class="lesson_content">203호</td>
 											<td class="lesson_content">월,금</td>
 											<td class="lesson_content">20</td>
-											<td class="lesson_content">신청</td>
+											<td class="lesson_content">
+												<input class="button" type="button" value="취소" onclick="location.href=''">
+											</td>
 										</tr>
 								</tbody>
 							</table>	

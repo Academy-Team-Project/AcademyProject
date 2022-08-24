@@ -56,7 +56,9 @@
 								<tbody>
 									<tr>
 										<td class="board_content">1</td>
-										<td class="board_content" width="70%">멍멍</td>
+										<td class="board_content" width="70%">
+											<a href="#" style="color: #000000;">멍멍</a>
+										</td>
 										<td class="board_content">강아지</td>
 										<td class="board_content">0</td>
 										<td class="board_content" width="10%">DATE</td>
@@ -64,7 +66,9 @@
 									
 									<tr>
 										<td class="board_content">2</td>
-										<td class="board_content" width="70%">야옹</td>
+										<td class="board_content" width="70%">
+											<a href="#" style="color: #000000;">야옹</a>
+										</td>
 										<td class="board_content">고양이</td>
 										<td class="board_content">0</td>
 										<td class="board_content" width="10%">DATE</td>
@@ -72,7 +76,9 @@
 									
 									<tr>
 										<td class="board_content">3</td>
-										<td class="board_content" width="70%">삐약</td>
+										<td class="board_content" width="70%">
+											<a href="#" style="color: #000000;">삐약</a>
+										</td>
 										<td class="board_content">병아리</td>
 										<td class="board_content">0</td>
 										<td class="board_content" width="10%">DATE</td>
@@ -80,7 +86,9 @@
 									
 									<tr>
 										<td class="board_content">4</td>
-										<td class="board_content" width="70%">꽤액</td>
+										<td class="board_content" width="70%">
+											<a href="#" style="color: #000000;">꽤액</a>
+										</td>
 										<td class="board_content">오리</td>
 										<td class="board_content">0</td>
 										<td class="board_content" width="10%">DATE</td>

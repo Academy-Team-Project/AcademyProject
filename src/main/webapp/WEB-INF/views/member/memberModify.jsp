@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/backstyle.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/board.css">
 <meta charset="UTF-8">
-<title>infoModify</title>
+<title>MemberModify</title>
 </head>
 <body>
 	<%@ include file="../include/header.jsp" %>	<!-- header.jsp를 붙임 -->
@@ -31,6 +31,13 @@
 						<h2>개 인 정 보 수 정</h2> <br><br>
 							<table width="85%" height="70%" border="0" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
 								<form action="memberModifyOk" method="post" name="member_form">
+									
+									<tr>
+										<th class="member_title" width="20%" align="left"> 회원구분</th>
+										<td class="">
+											<input class="input_box" type="text" name="" value="" readonly="readonly">
+										</td>
+									</tr>
 								
 									<tr>
 										<th class="member_title" width="20%" align="left">ID</th>
@@ -42,21 +49,21 @@
 									<tr>
 										<th class="member_title"  width="20%" align="left">이름</th>
 										<td class="">
-											<input class="input_box" type="text" name="" value="">
+											<input class="input_box" type="text" name="" value="" required="required">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">비밀번호</th>
 										<td class="">
-											<input class="input_box" type="password" name="" value="">
+											<input class="input_box" type="password" name="" value="" placeholder="8자리 이상 입력하세요" required="required">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">비밀번호 확인</th>
 										<td class="">
-											<input class="input_box" type="password" name="" value="">
+											<input class="input_box" type="password" name="" value="" placeholder="8자리 이상 입력하세요" required="required">
 										</td>
 									</tr>
 									
@@ -81,9 +88,9 @@
 									</tr>
 									
 									<tr>
-										<th class="member_title"  width="20%" align="left">이메일</th>
+										<th class="member_title"  width="20%" align="left" >이메일</th>
 										<td>
-											<input type="email" size="30">
+											<input type="email" size="30" placeholder="abc@abc.com" required="required">
 										</td>
 									</tr>
 									

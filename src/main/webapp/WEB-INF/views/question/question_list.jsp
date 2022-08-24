@@ -56,7 +56,9 @@
 								<tbody>
 									<tr>
 										<td class="board_content">1</td>
-										<td class="board_content" width="70%">감자전</td>
+										<td class="board_content" width="70%">
+											<a href="#" style="color: #000000;">감자전</a>
+										</td>
 										<td class="board_content">감자</td>
 										<td class="board_content">0</td>
 										<td class="board_content" width="10%">DATE</td>
@@ -64,7 +66,9 @@
 									
 									<tr>
 										<td class="board_content">2</td>
-										<td class="board_content" width="70%">맛탕</td>
+										<td class="board_content" width="70%">
+											<a href="#" style="color: #000000;">맛탕</a>
+										</td>
 										<td class="board_content">고구마</td>
 										<td class="board_content">0</td>
 										<td class="board_content"width="10%">DATE</td>
@@ -72,7 +76,9 @@
 									
 									<tr>
 										<td class="board_content">3</td>
-										<td class="board_content" width="70%">새우깡</td>
+										<td class="board_content" width="70%">
+											<a href="#" style="color: #000000;">새우깡</a>
+										</td>
 										<td class="board_content">새우</td>
 										<td class="board_content">0</td>
 										<td class="board_content" width="10%">DATE</td>
@@ -80,7 +86,9 @@
 									
 									<tr>
 										<td class="board_content">4</td>
-										<td class="board_content" width="70%">양파링</td>
+										<td class="board_content" width="70%">
+											<a href="#" style="color: #000000;">양파링</a>
+										</td>
 										<td class="board_content">양파</td>
 										<td class="board_content">0</td>
 										<td class="board_content" width="10%">DATE</td>
