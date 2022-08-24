@@ -6,11 +6,11 @@
 nav{
 	display:block; 
 	width:10%; 
-	line-height: 3.2;
+	line-height: 2.8;
 	float:left; 
 	background-color: #C7C5F4;
 	box-sizing: border-box;
-	position: fixed;
+	position: static;
 	text-align: center;
 	font-family: 'Noto Sans KR', sans-serif;
 }

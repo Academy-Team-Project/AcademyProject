@@ -37,4 +37,26 @@ public class MainController {
 		
 		return "index";
 	}
+	
+	
+	@RequestMapping (value = "/nonmember_enter")
+	public String nonmember_enter() {
+		
+		return "nonmember_home";
+	}
+	
+	
+	@RequestMapping (value = "/academy_introduction")
+	public String academy_introduction() {
+		
+		return "academy_introduction";
+	}
+	
+	
+	@RequestMapping (value = "/academy_location")
+	public String academy_location() {
+		
+		return "academy_location";
+	}
+	
 }

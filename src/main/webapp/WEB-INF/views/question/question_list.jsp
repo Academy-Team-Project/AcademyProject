@@ -26,52 +26,64 @@
 				</td>
 			</tr>
 			<!-- 내부 테이블 -->
-			<table width="70%" height="650" cellspacing="0" border="0" cellpadding="10" class="board_table"> 
+			<table width="70%" height="80%" cellspacing="0" border="0" cellpadding="10" class="board_table"> 
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
+					<br><br>
 						<h2>질 문 게 시 판</h2> <br><br>
+						<form action="board_list">
+							<div class="search" align="right">
+						        <select name="searchOption">
+						            <option value="title">제목</option>
+						            <option value="content">내용</option>
+						            <option value="name">글쓴이</option>
+								</select> 
+								<input type="text" name="searchKeyword">
+								<input class="button" type="button" value="Search" onclick="location.href=''">
+							</div>
+					    </form>
 							<table width="85%" height="70%" border="1" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
 								<thead>
 									<tr>
 										<th class="board_title">No</th>
-										<th class="board_title">ID</th>
-										<th class="board_title" width="50%">TITLE</th>
+										<th class="board_title" width="70%">TITLE</th>
 										<th class="board_title">NAME</th>
-										<th class="board_title">DATE</th>
+										<th class="board_title">조회수</th>
+										<th class="board_title" width="10%">DATE</th>
 									</tr>
 								</thead>
 								
 								<tbody>
 									<tr>
 										<td class="board_content">1</td>
-										<td class="board_content">감자깡</td>
-										<td class="board_content" width="50%">감자전</td>
+										<td class="board_content" width="70%">감자전</td>
 										<td class="board_content">감자</td>
-										<td class="board_content">DATE</td>
+										<td class="board_content">0</td>
+										<td class="board_content" width="10%">DATE</td>
 									</tr>
 									
 									<tr>
 										<td class="board_content">2</td>
-										<td class="board_content">고구마깡</td>
-										<td class="board_content" width="50%">맛탕</td>
+										<td class="board_content" width="70%">맛탕</td>
 										<td class="board_content">고구마</td>
-										<td class="board_content">DATE</td>
+										<td class="board_content">0</td>
+										<td class="board_content"width="10%">DATE</td>
 									</tr>
 									
 									<tr>
 										<td class="board_content">3</td>
-										<td class="board_content">새우깡</td>
-										<td class="board_content" width="50%">비는깡</td>
+										<td class="board_content" width="70%">새우깡</td>
 										<td class="board_content">새우</td>
-										<td class="board_content">DATE</td>
+										<td class="board_content">0</td>
+										<td class="board_content" width="10%">DATE</td>
 									</tr>
 									
 									<tr>
 										<td class="board_content">4</td>
-										<td class="board_content">양파깡</td>
-										<td class="board_content" width="50%">양파링</td>
+										<td class="board_content" width="70%">양파링</td>
 										<td class="board_content">양파</td>
-										<td class="board_content">DATE</td>
+										<td class="board_content">0</td>
+										<td class="board_content" width="10%">DATE</td>
 									</tr>
 								</tbody>
 								<!-- 반복문 var은 글 하나당 붙일 이름 -->
@@ -99,13 +111,21 @@
 									</tr>
 								</c:forEach>
 								-->
-								
+								<!-- 
 								<tr>
 									<td colspan="5" align="right">
-										<input class="button" type="button" value="Write" onclick="location.href=''">
+										<input class="button" type="button" value="등록" onclick="location.href=''">
+										<input class="button" type="button" value="수정" onclick="location.href=''">
+										<input class="button" type="button" value="삭제" onclick="location.href=''">
 									</td>
 								</tr>
+								 -->
 							</table>
+							<div align="right" class="board_inputbox">	
+								 <input class="button" type="button" value="등록" onclick="location.href=''">
+								<input class="button" type="button" value="수정" onclick="location.href=''">
+								<input class="button" type="button" value="삭제" onclick="location.href=''">
+							</div>
 						</td>
 					</tr>
 			</table>

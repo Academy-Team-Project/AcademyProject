@@ -21,14 +21,18 @@
 			  <input class="radio" type="radio" name="memberType"> 교사 
 			  <input class="radio" type="radio" name="memberType"> 직원
 		  </h4>
-		  <br><br><br>        
+		  <br><br>        
           <input type="text" class="login_input" placeholder="User ID" >
         </div>
         <div class="login_field">    
           <input type="password" class="login_input" placeholder="Password">
         </div>
+       
         <button type="submit" class="button login_submit" onclick="loginCheck()">
           <span class="button_text">Log In Now</span> 
+        </button>
+        <button type="button" class="button non_member" onclick="location.href='/nonmember_enter'">
+          <span class="button_text">비회원 로그인</span> 
         </button>       
       </form>
       

@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@500&family=Noto+Sans+KR&display=swap');
+
 
 span.content_title {
 	font-size: 20px;
@@ -15,4 +17,31 @@ span.content_title {
  	overflow-x:auto;
   	margin-top: 0px;
   	border: 1px solid rgba(255,255,255,0.3);
+}
+
+.search {
+	padding-bottom: 10px;
+	position: static;
+	margin-right: 120px;
+}
+
+p {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 18px;
+}
+
+.line {
+	border-top: 1px;
+	border-top-color: gray;
+	border-top-style: solid;
+	
+	border-bottom: 1px;
+	border-bottom-color: gray;
+	border-bottom-style: solid;
+}
+
+.board_inputbox {
+	margin-top: 15px;
+	margin-right: 110px;
+	margin-bottom: 30px;
 }
