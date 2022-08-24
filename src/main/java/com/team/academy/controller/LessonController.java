@@ -17,7 +17,12 @@ public class LessonController {
 	public String mylesson_list() {
 		
 		return "/lesson/mylesson_list";
-	}	// 수업관리 메뉴를 선택하면 동작하는 화면 반환
+	}	// 내수업 메뉴를 선택하면 동작하는 화면 반환
 	
-
+	
+	@RequestMapping (value = "/lesson/grade_list")
+	public String grade_list() {
+		
+		return "/lesson/grade_list";
+	}	// 성적관리 메뉴를 선택하면 동작하는 화면 반환
 }

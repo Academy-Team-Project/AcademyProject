@@ -25,21 +25,11 @@
 					<span class="lesson_main_title02"></span>
 				</td>
 			</tr>
-			<!-- 내부 테이블 -->
+			<!-- 내부 테이블 -->-
 			<table width="80%" height="80%" cellspacing="0" border="0" cellpadding="10" class="lesson_table"> 
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
-						<h2>개 설 과 정</h2> <br><br>
-						<form action="board_list">
-							<div class="search" align="right">
-						        <select name="searchOption">
-						            <option value="title">수업명</option>
-						            <option value="content">담당교사</option>
-								</select> 
-								<input type="text" name="searchKeyword">
-								<input class="button" type="button" value="Search" onclick="location.href=''">
-							</div>
-					    </form>
+						<h2>성 적 관 리</h2> <br><br>
 							<table width="85%" height="70%" border="1" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
 								<thead>
 									<tr>
@@ -48,7 +38,8 @@
 										<th class="lesson_title">담당교사</th>
 										<th class="lesson_title">강의실</th>
 										<th class="lesson_title">수업일</th>
-										<th class="lesson_title">수강정원</th>
+										<th class="lesson_title">수강인원</th>
+										<th class="lesson_title">성적등록</th>
 									</tr>
 								</thead>
 								
@@ -62,6 +53,9 @@
 										<td class="lesson_content">203호</td>
 										<td class="lesson_content">월,목</td>
 										<td class="lesson_content">20</td>
+										<td class="lesson_content" align="center">
+											<input class="button" type="button" value="등록" onclick="location.href=''">
+										</td>
 									</tr>
 									
 									<tr>
@@ -73,6 +67,9 @@
 										<td class="lesson_content">205호</td>
 										<td class="lesson_content">화,금</td>
 										<td class="lesson_content">20</td>
+										<td class="lesson_content" align="center">
+											<input class="button" type="button" value="등록" onclick="location.href=''">
+										</td>
 									</tr>
 									
 									<tr>
@@ -84,6 +81,9 @@
 										<td class="lesson_content">301호</td>
 										<td class="lesson_content">월,화,목</td>
 										<td class="lesson_content">25</td>
+										<td class="lesson_content" align="center">
+											<input class="button" type="button" value="등록" onclick="location.href=''">
+										</td>
 									</tr>
 									
 									<tr>
@@ -95,31 +95,12 @@
 										<td class="lesson_content">302호</td>
 										<td class="lesson_content">수,목,금</td>
 										<td class="lesson_content">25</td>
-									</tr>
-									
-									<tr>
-										<td class="lesson_content" align="center">10034</td>
-										<td class="lesson_content"  width="50%">
-											<a href="#" style="color: #000000;">과학A</a>
+										<td class="lesson_content" align="center">
+											<input class="button" type="button" value="등록" onclick="location.href=''">
 										</td>
-										<td class="lesson_content">이경규</td>
-										<td class="lesson_content">204호</td>
-										<td class="lesson_content">월,수</td>
-										<td class="lesson_content">15</td>
-									</tr>
-									
-									<tr>
-										<td class="lesson_content" align="center">10038</td>
-										<td class="lesson_content"  width="50%">
-											<a href="#" style="color: #000000;">사회A</a>
-										</td>
-										<td class="lesson_content">이정재</td>
-										<td class="lesson_content">306호</td>
-										<td class="lesson_content">화,수</td>
-										<td class="lesson_content">15</td>
-									</tr>
-																
+									</tr>										
 								</tbody>
+								
 								<!-- 반복문 var은 글 하나당 붙일 이름 -->
 								<!-- 
 								<c:forEach items="" var="">
@@ -153,10 +134,7 @@
 								</tr>
 								 -->
 							</table>
-							<div align="right" class="board_inputbox">	
-								<input class="button" type="button" value="등록" onclick="location.href=''">
-							</div>
-							
+							<br><br>						
 						</td>
 					</tr>
 			</table>

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/backstyle.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/board.css">
 <meta charset="UTF-8">
-<title>Notice</title>
+<title>ABC Academy</title>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
 	<%@ include file="../include/navigation.jsp" %>	<!-- navigation.jsp를 붙임 -->
 	<center>
 		<!-- 외부 테이블 -->
-		<table width="70%" cellspacing="0" border="0" cellpadding="10" class="board_main_title">
+		<table width="80%" cellspacing="0" border="0" cellpadding="10" class="board_main_title">
 			<tr>
 				<td align="center">
 					<span class="board_main_title01"></span>
@@ -26,7 +26,7 @@
 				</td>
 			</tr>
 			<!-- 내부 테이블 -->
-			<table width="70%" height="80%" cellspacing="0" border="0" cellpadding="10" class="board_table"> 
+			<table width="80%" height="80%" cellspacing="0" border="0" cellpadding="10" class="board_table"> 
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
 					<br><br>

@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index.css">
 <meta charset="UTF-8">
-<title>ABC Academy Login</title>
+<title>ABC Academy</title>
 </head>
 <body>
 

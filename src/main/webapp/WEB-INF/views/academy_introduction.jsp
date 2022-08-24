@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/backstyle.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/board.css">
 <meta charset="UTF-8">
-<title>Notice</title>
+<title>ABC Academy</title>
 </head>
 <body>
 

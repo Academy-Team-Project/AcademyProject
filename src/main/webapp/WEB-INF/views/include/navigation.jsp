@@ -16,7 +16,7 @@
 		<a href="/member/memberModify"> 정보수정 </a>
 		<a href="/lesson/mylesson_list"> 내 수업 </a>
 		<a href="/lesson/lesson_list"> 수업관리 </a>
-		<a href="#"> 성적관리 </a>
+		<a href="/lesson/grade_list"> 성적관리 </a>
 		<a href="/member/member_list"> 회원관리 </a>
 		<a href="/academy_introduction"> 학원안내 </a>
 		<a href="/academy_location"> 오시는길 </a>

@@ -6,14 +6,14 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/backstyle.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/board.css">
 <meta charset="UTF-8">
-<title>MemberModify</title>
+<title>ABC Academy</title>
 </head>
 <body>
 	<%@ include file="../include/header.jsp" %>	<!-- header.jsp를 붙임 -->
 	<%@ include file="../include/navigation.jsp" %>	<!-- navigation.jsp를 붙임 -->
 	<center>
 		<!-- 외부 테이블 -->
-		<table width="70%" cellspacing="0" border="0" cellpadding="10" class="member_main_title">
+		<table width="80%" cellspacing="0" border="0" cellpadding="10" class="member_main_title">
 			<tr>
 				<td align="center">
 					<span class="member_main_title01"></span>
@@ -25,12 +25,12 @@
 				</td>
 			</tr>
 			<!-- 내부 테이블 -->
-			<table width="70%" height="650" cellspacing="0" border="0" cellpadding="10" class="member_table"> 
+			<table width="80%" height="80%" cellspacing="0" border="0" cellpadding="10" class="member_table"> 
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
 						<h2>개 인 정 보 수 정</h2> <br><br>
 							<table width="85%" height="70%" border="0" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
-								<form action="memberModifyOk" method="post" name="member_form">
+								<form action="memberModifyOk" name="member_form"  method="post">
 									
 									<tr>
 										<th class="member_title" width="20%" align="left"> 회원구분</th>
