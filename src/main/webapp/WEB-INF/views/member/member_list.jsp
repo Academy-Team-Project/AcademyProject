@@ -155,7 +155,7 @@
 								 -->
 							</table>
 							<div align="right" class="board_inputbox">	
-								<input class="button" type="button" value="등록" onclick="location.href=''">
+								<input class="button" type="button" value="등록" onclick="location.href='/member/memberJoin'">
 							</div>
 							
 						</td>

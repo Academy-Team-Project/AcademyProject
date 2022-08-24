@@ -28,21 +28,22 @@
 			<table width="80%" height="80%" cellspacing="0" border="0" cellpadding="10" class="member_table"> 
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
-						<h2>개 인 정 보 수 정</h2> <br><br>
+						<h2>회 원 가 입</h2> <br><br>
 							<table width="85%" height="70%" border="0" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
-								<form action="memberModifyOk" name="member_form"  method="post">
+								<form action="memberJoinOk" name="member_join_form"  method="post">
 									
 									<tr>
 										<th class="member_title" width="20%" align="left"> 회원구분</th>
 										<td class="">
-											<input class="input_box" type="text" name="" value="" readonly="readonly">
+											<input class="input_box" type="text" name="" value="" placeholder="[학생/교사/직원]" required="required">
 										</td>
 									</tr>
 								
 									<tr>
 										<th class="member_title" width="20%" align="left">ID</th>
 										<td class="">
-											<input class="input_box" type="text" name="" value="" readonly="readonly">
+											<input class="input_box" type="text" name="" value="" placeholder="5자리 이상 입력하세요" required="required"> &nbsp;&nbsp;
+											<input class="button" type="button" value="중복체크" onclick="memberidCheck()">
 										</td>
 									</tr>
 									
@@ -96,7 +97,7 @@
 									</tr>
 									<tr>
 										<td colspan="6" align="right">
-											<input class="button" type="button" value="수정" onclick="modifyCheck()">
+											<input class="button" type="button" value="등록" onclick="location.href='/member/member_list'">
 											<input class="button" type="button" value="취소" onclick="location.href='/notice/notice_list'">
 										</td>
 									</tr>

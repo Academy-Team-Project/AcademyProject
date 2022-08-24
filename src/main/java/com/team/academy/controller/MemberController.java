@@ -18,4 +18,17 @@ public class MemberController {
 		
 		return "/member/member_list";
 	}
+	
+	
+	@RequestMapping (value = "member/memberJoin")
+	public String memberJoin() {
+		
+		return "/member/memberJoin";
+	}
+	
+	@RequestMapping (value = "/joinOk")
+	public String joinOk() {
+		
+		return "redirect:/member/member_list";
+	}
 }
