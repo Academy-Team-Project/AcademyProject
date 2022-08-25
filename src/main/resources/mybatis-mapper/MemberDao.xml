@@ -31,6 +31,10 @@
 		SELECT * FROM academy_member WHERE memberid = #{param1}
 		<!-- dto로 값을 반환해줌 -->
 	</select>
+	
+	<update id="membermodifyDao">
+		UPDATE academy_member SET membername= #{param1}, memberpw= #{param2}, memberbirth= #{param3}, membertel= #{param4}, memberemail= #{param5}, memberaddress= #{param6} WHERE memberid= #{param7}
+	</update>
 
 	<select id="memberlistDao" resultType="com.team.academy.dto.MemberDto"> 	<!-- select타입은 result값이 있어야함 -->
 		SELECT * FROM academy_member ORDER BY memberid DESC

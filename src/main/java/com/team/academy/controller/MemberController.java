@@ -20,14 +20,8 @@ public class MemberController {
 	
 	@Autowired		// 자동 bean 생성 및 주입, 자동 초기화
 	private SqlSession sqlSession;
-
-	@RequestMapping (value = "member/memberModify")
-	public String memberModify() {
-		
-		return "/member/memberModify";
-	}
 	
-	
+	// 회원 리스트 출력
 	@RequestMapping (value = "/member/member_list")
 	public String member_list(Model model) {
 		
@@ -87,7 +81,53 @@ public class MemberController {
 	}
 	
 	
+	// 회원 정보 수정
+	@RequestMapping (value = "/member/memberModify")
+	public String memberModify(HttpServletRequest request, Model model) {
+		
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		
+		HttpSession session = request.getSession();		// session에 올라와 있는 값을 뽑아냄
+		String sessionId = (String) session.getAttribute("sessionId");
+		
+		MemberDto memberDto = memberDao.memberdetailDao(sessionId);	// 로그인한 아이디의 모든 정보를 dto로 반환(server의 session에 값이 있음)
+		
+		model.addAttribute("memberDto", memberDto);
+		
+		return "/member/memberModify";
+	}
 	
 	
+	// 회원 정보 수정 후 작동
+	@RequestMapping (value = "/member/memberModifyOk", method = RequestMethod.POST)
+	public String memberModifyOk(HttpServletRequest request, Model model) {
+		
+		String memberid = request.getParameter("memberid");	// 아이디(유일값)로 데이터 검색해서 해당 정보를 수정하기 위해서 필요
+		String membername = request.getParameter("membername");
+		String memberpw = request.getParameter("memberpw");
+		String memberbirth = request.getParameter("memberbirth");
+		String membertel = request.getParameter("membertel");
+		String memberemail = request.getParameter("memberemail");
+		String memberaddress = request.getParameter("memberaddress");	// 수정하기 위해 입력한 내용들
+		
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		
+		memberDao.membermodifyDao(membername, memberpw, memberbirth, membertel, memberemail, memberaddress, memberid);		// 수정된 정보
+		
+		MemberDto memberDto = memberDao.memberdetailDao(memberid);	// 정보를 수정한 아이디의 모든 정보를 넘겨줌
+		
+		HttpSession session = request.getSession();		// session
+		
+		String memberId = memberDto.getMemberid();
+		String memberType = memberDto.getMembertype();
+		
+		session.setAttribute("sessionId", memberId);
+		session.setAttribute("sessionType", memberType);	// session에 올림
+		
+		model.addAttribute("memberDto", memberDto);
+		
+		
+		return "/member/memberModifyOk"; 
+	}
 	
 }
