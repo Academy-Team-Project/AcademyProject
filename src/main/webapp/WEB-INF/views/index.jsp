@@ -4,6 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/index.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/memberLogin.js"></script>
 <meta charset="UTF-8">
 <title>ABC Academy</title>
 </head>
@@ -14,18 +15,18 @@
     <div class="screen_content">
       <img alt="" src="${pageContext.request.contextPath }/resources/images/ABC_logo.jpg" class="index_img">
       
-      <form action="notice/notice_list" method="post" name="login_form" class="login" align="center">
+      <form action="memberLoginOk" method="post" name="member_login_form" class="login" align="center">
         <div class="login_field">
           <h4>
-	          <input class="radio" type="radio" name="memberType"> 학생 
-			  <input class="radio" type="radio" name="memberType"> 교사 
-			  <input class="radio" type="radio" name="memberType"> 직원
+	          <input class="radio" type="radio" name="membertype" value="학생"> 학생 
+			  <input class="radio" type="radio" name="membertype" value="교사"> 교사 
+			  <input class="radio" type="radio" name="membertype" value="직원"> 직원
 		  </h4>
 		  <br><br>        
-          <input type="text" class="login_input" placeholder="User ID" >
+          <input type="text" class="login_input" placeholder="User ID" name="memberid" >
         </div>
         <div class="login_field">    
-          <input type="password" class="login_input" placeholder="Password">
+          <input type="password" class="login_input" placeholder="Password" name="memberpw">
         </div>
        
         <button type="submit" class="button login_submit" onclick="loginCheck()">

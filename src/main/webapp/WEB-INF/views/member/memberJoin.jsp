@@ -5,6 +5,7 @@
 <head>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/backstyle.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common/board.css">
+<script type="text/javascript" src="${pagaContext.request.contextPath }/resources/js/memberJoin.js"></script>
 <meta charset="UTF-8">
 <title>ABC Academy</title>
 </head>
@@ -35,70 +36,70 @@
 									<tr>
 										<th class="member_title" width="20%" align="left"> 회원구분</th>
 										<td class="">
-											<input class="input_box" type="text" name="" value="" placeholder="[학생/교사/직원]" required="required">
+											<input class="input_box" type="text" name="membertype" value="" placeholder="[학생/교사/직원]" required="required">
 										</td>
 									</tr>
 								
 									<tr>
 										<th class="member_title" width="20%" align="left">ID</th>
 										<td class="">
-											<input class="input_box" type="text" name="" value="" placeholder="5자리 이상 입력하세요" required="required"> &nbsp;&nbsp;
-											<input class="button" type="button" value="중복체크" onclick="memberidCheck()">
+											<input class="input_box" type="text" name="memberid" value="" placeholder="5자리 이상 입력하세요" required="required"> &nbsp;&nbsp;
+										<!-- <input class="button" type="button" value="중복체크" onclick="memberidCheck()">  -->
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">이름</th>
 										<td class="">
-											<input class="input_box" type="text" name="" value="" required="required">
+											<input class="input_box" type="text" name="membername" value="" required="required">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">비밀번호</th>
 										<td class="">
-											<input class="input_box" type="password" name="" value="" placeholder="8자리 이상 입력하세요" required="required">
+											<input class="input_box" type="password" name="memberpw" value="" placeholder="8자리 이상 입력하세요" required="required">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">비밀번호 확인</th>
 										<td class="">
-											<input class="input_box" type="password" name="" value="" placeholder="8자리 이상 입력하세요" required="required">
+											<input class="input_box" type="password" name="memberpwcheck" value="" placeholder="8자리 이상 입력하세요" required="required">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">생년월일</th>
 										<td class="">
-											<input class="input_box" type="date" name="" value="">
+											<input class="input_box" type="date" name="memberbirth" value="">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">휴대전화</th>
 										<td>
-											<input class="input_box" type="tel" size="20"  placeholder=" '-' 없이 입력하세요">
+											<input class="input_box" type="tel" name="membertel" size="20"  placeholder=" '-' 없이 입력하세요">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left" >이메일</th>
 										<td>
-											<input type="email" size="30" placeholder="abc@abc.com" required="required">
+											<input type="email" size="30" name="memberemail" placeholder="abc@abc.com" required="required">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">주소</th>
 										<td>
-											<input type="text" size="100">
+											<input type="text" size="100" name="memberaddress">
 										</td>
 									</tr>
 									<tr>
 										<td colspan="6" align="right">
-											<input class="button" type="button" value="등록" onclick="location.href='/member/member_list'">
-											<input class="button" type="button" value="취소" onclick="location.href='/notice/notice_list'">
+											<input class="button" type="button" value="등록" onclick="joinCheck()">
+											<input class="button" type="button" value="취소" onclick="location.href='/member/member_list'">
 										</td>
 									</tr>
 								</form>

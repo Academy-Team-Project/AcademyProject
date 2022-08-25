@@ -16,9 +16,22 @@
 			<td width="80%">
 				<img alt="" src="${pageContext.request.contextPath }/resources/images/ABC_logo.jpg" class="header_logo">
 			</td>
+			<%
+				String sessionName = (String)session.getAttribute("sessionName");
+				if (sessionName != null) {
+			%>
 			<td width="15%" align="right">
-				님 환영합니다
+				<b><%= sessionName %></b> 님 환영합니다
 			</td>
+			<%
+				} else {
+			%>		
+				<td width="15%" align="right">
+					<b>Guest</b> 님 환영합니다
+				</td>
+			<%	
+				}
+			%>
 			<td width="5%" class="btn_logout">
 				<button type="button" class="btn-hover color" onclick="location.href='/logout'">logout</button>
 			</td>	
