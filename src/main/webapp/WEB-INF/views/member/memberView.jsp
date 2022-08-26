@@ -85,7 +85,7 @@
 										<td colspan="6" align="right">
 											<input class="button" type="button" value="수정" onclick="location.href='/member/memberModify'">&nbsp;&nbsp; 
 											<input class="button" type="button" value="목록" onclick="location.href='/member/member_list'">&nbsp;&nbsp;
-											<input class="button" type="button" value="삭제" onclick="#">
+											<input class="button" type="button" value="삭제" onclick="location.href='/member/memberDelete?memberid='+${memberDto.memberid }">
 										</td>
 									</tr>
 								</form>

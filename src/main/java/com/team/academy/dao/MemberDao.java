@@ -21,4 +21,10 @@ public interface MemberDao {	// 멤버 관련 Dao method, 추상 Method
 	public ArrayList<MemberDto> memberlistDao();	// 회원 가입한 회원 목록을 가져와서 리스트 작성, 전부 가져오기 때문에 변수가 필요 없음
 
 	public MemberDto memberviewDao(String memberid);	// 회원 정보 상세보기(select이므로 dto자료형 필요)
+	
+	public void memberdeleteDao(String memberid);	// 등록된 회원 삭제
+	
+//	[회원 검색용 Dao]
+	public ArrayList<MemberDto> memberTypeSearch(String keyword);	// 회원 구분으로 검색한 결과 리스트 출력
+	public ArrayList<MemberDto> memberNameSearch(String keyword);	// 회원 이름으로 검색한 결과 리스트 출력
 }

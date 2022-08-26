@@ -33,16 +33,20 @@
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
 						<h2>회 원 관 리</h2> <br><br>
-						<form action="member_list">
+						
+						<!-- 검색 기능 -->
+						<form action="/member/member_list">
 							<div class="search" align="right">
 						        <select name="searchOption">
-						            <option value="title">회원구분</option>
-						            <option value="content">이름</option>
+						            <option value="memberType">회원구분</option>
+						            <option value="memberName">이름</option>
 								</select> 
 								<input type="text" name="searchKeyword">
-								<input class="button" type="button" value="Search" onclick="location.href=''">
+								<input class="button" type="submit" value="Search">
 							</div>
 					    </form>
+					    
+					    	<!-- 회원 목록 -->
 							<table width="85%" height="70%" border="1" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
 								<thead>
 									<tr>

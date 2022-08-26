@@ -23,10 +23,25 @@ public class MemberController {
 	
 	// 회원 리스트 출력
 	@RequestMapping (value = "/member/member_list")
-	public String member_list(Model model) {
+	public String member_list(HttpServletRequest request, Model model) {
+		
+		String searchKeyword = request.getParameter("searchKeyword");
+		String searchOption = request.getParameter("searchOption");
 		
 		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
-		ArrayList<MemberDto> memberDto = memberDao.memberlistDao();
+		
+//		[회원 검색 파트]		
+		ArrayList<MemberDto> memberDto = null;
+		
+		if (searchKeyword == null) { 	// 검색값이 없는 경우 모든 리스트값을 출력
+			memberDto = memberDao.memberlistDao();
+		}
+		else if (searchOption.equals("memberType")) {
+			memberDto = memberDao.memberTypeSearch(searchKeyword);
+		}
+		else if (searchOption.equals("memberName")) {
+			memberDto = memberDao.memberNameSearch(searchKeyword);
+				}
 		
 		model.addAttribute("memberlist", memberDto);
 		
@@ -136,5 +151,17 @@ public class MemberController {
 		model.addAttribute("memberDto", memberDto);		// 반환(model에 담아서 배송서비스)
 		
 		return "/member/memberView";
+	}
+	
+	
+	@RequestMapping (value = "/member/memberDelete")
+	public String memberDelete(HttpServletRequest request, Model model) {
+		
+		String memberid = request.getParameter("memberid");		// 삭제할 회원의 고유값인 아이디 가져와서 넘기기
+		
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		memberDao.memberdeleteDao(memberid);
+			
+		return "redirect:member_list";
 	}
 }

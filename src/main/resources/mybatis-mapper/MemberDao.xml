@@ -43,5 +43,19 @@
 	<select id="memberviewDao" resultType="com.team.academy.dto.MemberDto">
 		SELECT * FROM academy_member WHERE memberid = #{param1 }
 	</select>
+	
+	<delete id="memberdeleteDao">
+		DELETE FROM academy_member WHERE memberid = #{param1 }
+	</delete>	
+	
+	<!-- 회원 구분으로 검색한 결과 리스트만 선택 -->
+ 	<select id="memberTypeSearch" resultType="com.team.academy.dto.MemberDto">
+ 		SELECT * FROM academy_member WHERE membertype LIKE '%' || #{param1 } || '%' ORDER by memberid DESC 
+ 	</select>
+ 	
+ 	<!-- 회원 이름으로 검색한 결과 리스트만 선택 -->
+ 	<select id="memberNameSearch" resultType="com.team.academy.dto.MemberDto">
+ 		SELECT * FROM academy_member WHERE membername LIKE '%' || #{param1 } || '%' ORDER by memberid DESC 
+ 	</select>
 
 </mapper>  
