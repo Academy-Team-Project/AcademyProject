@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>   <!-- 보여지는 글자수 제한을 위한 기능이 포함되어있음 -->     
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +38,7 @@
 						        <select name="searchOption">
 						            <option value="title">제목</option>
 						            <option value="content">내용</option>
-						            <option value="name">글쓴이</option>
+						            <option value="writer">글쓴이</option>
 								</select> 
 								<input type="text" name="searchKeyword">
 								<input class="button" type="button" value="Search" onclick="location.href=''">
@@ -54,52 +56,41 @@
 								</thead>
 								
 								<tbody>
-									<tr>
-										<td class="board_content">1</td>
-										<td class="board_content" width="70%">
-											<a href="#" style="color: #000000;">멍멍</a>
-										</td>
-										<td class="board_content">강아지</td>
-										<td class="board_content">0</td>
-										<td class="board_content" width="10%">DATE</td>
-									</tr>
-									
-									<tr>
-										<td class="board_content">2</td>
-										<td class="board_content" width="70%">
-											<a href="#" style="color: #000000;">야옹</a>
-										</td>
-										<td class="board_content">고양이</td>
-										<td class="board_content">0</td>
-										<td class="board_content" width="10%">DATE</td>
-									</tr>
-									
-									<tr>
-										<td class="board_content">3</td>
-										<td class="board_content" width="70%">
-											<a href="#" style="color: #000000;">삐약</a>
-										</td>
-										<td class="board_content">병아리</td>
-										<td class="board_content">0</td>
-										<td class="board_content" width="10%">DATE</td>
-									</tr>
-									
-									<tr>
-										<td class="board_content">4</td>
-										<td class="board_content" width="70%">
-											<a href="#" style="color: #000000;">꽤액</a>
-										</td>
-										<td class="board_content">오리</td>
-										<td class="board_content">0</td>
-										<td class="board_content" width="10%">DATE</td>
-									</tr>
+									<!-- 반복문 var은 글 하나당 붙일 이름 -->
+									<c:forEach items="${noticelist }" var="dto">
+										<tr>
+											<td class="board_content" align="center">${dto.noticenum }</td>
+											<td class="board_content" width="60%">
+												<a href="notice_view?noticenum=${dto.noticenum }" style="color: #000000; text-align: left;">
+													<c:choose>
+														<c:when test="${fn:length(dto.noticetitle) > 35}">
+															<c:out value="${fn:substring(dto.noticetitle, 0, 35) }"></c:out>...
+														</c:when>
+														<c:otherwise>
+															<c:out value="${dto.noticetitle }"></c:out>
+														</c:otherwise>											
+													</c:choose>
+												</a>
+											</td>
+											<td class="board_content" align="center">${dto.membername }</td>
+											<td class="board_content" align="center">${dto.noticehit }</td>
+											<td class="board_content" width="10%" align="center">
+												<c:out value="${fn:substring(dto.noticedate, 0, 10) }"></c:out>
+											</td>
+										</tr>
+									</c:forEach>
 								</tbody>
 								
 							</table>
 							<div align="right" class="board_inputbox">	
+							<%
+								String sessiontype = (String) session.getAttribute("sessionType");
+								if (sessiontype.equals("직원")) {
+							%>
 								 <input class="button" type="button" value="등록" onclick="location.href='/notice/notice_write'">
-								<input class="button" type="button" value="수정" onclick="location.href=''">
-								<input class="button" type="button" value="삭제" onclick="location.href=''">
+							<%
+								}
+							%>
 							</div>
 						</td>
 					</tr>

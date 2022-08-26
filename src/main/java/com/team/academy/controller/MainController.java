@@ -1,5 +1,7 @@
 package com.team.academy.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.team.academy.dto.MemberDto;
+import com.team.academy.dto.NoticeBoardDto;
 import com.team.academy.dao.MemberDao;
+import com.team.academy.dao.NoticeBoardDao;
 
 @Controller
 public class MainController {
@@ -39,6 +43,9 @@ public class MainController {
 		String membertype = request.getParameter("membertype");
 		String memberid = request.getParameter("memberid");
 		String memberpw = request.getParameter("memberpw");
+		
+		String searchKeyword = request.getParameter("searchKeyword");
+		String searchOption = request.getParameter("searchOption");
 		
 		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
 		
@@ -69,7 +76,29 @@ public class MainController {
 			model.addAttribute("membername", memberName);
 			model.addAttribute("membertype", memberType);	// loginOk로 보내기 위해서 model에 담아서 보냄
 			
+			NoticeBoardDao noticeboardDao = sqlSession.getMapper(NoticeBoardDao.class);
+			
+//			[게시판 검색 파트]		
+			ArrayList<NoticeBoardDto> noticeboardDto = null;
+			
+			if(searchKeyword == null) {	// 검색할 키워드를 입력하지 않았을때 리스트 목록 전체출력
+				noticeboardDto = noticeboardDao.noticelistDao();
+			}
+			else if (searchOption.equals("title")) {
+				noticeboardDto = noticeboardDao.noticeTitleSearchList(searchKeyword);
+			}
+			else if (searchOption.equals("content")) {
+				noticeboardDto = noticeboardDao.noticeContentSearchList(searchKeyword);
+			}
+			else if (searchOption.equals("writer")) {
+				noticeboardDto = noticeboardDao.noticeNameSearchList(searchKeyword);
+			}
+			
+			model.addAttribute("noticelist", noticeboardDto);
+			
 		}
+		
+		
 		
 		return "/member/memberLoginOk";
 	}

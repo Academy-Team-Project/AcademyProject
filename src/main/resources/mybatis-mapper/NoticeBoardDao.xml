@@ -6,4 +6,53 @@
    
 <mapper namespace="com.team.academy.dao.NoticeBoardDao">		<!-- 위치 알려줘서 어디꺼 잡아야 하는지 지정 -->
 
+	<!-- 공지사항 게시글 등록 -->
+	<insert id="noticewriteDao" >
+		INSERT INTO academy_noticeboard (noticenum, memberid, noticetitle, noticecontent, noticehit) VALUES (academy_noticeboard_seq.nextval, #{param1}, #{param2}, #{param3}, 0)
+	</insert>
+
+	<!-- Join : 테이블 이름 치환을 t1, t2로 함, orcle은 where절에서 join을 함 -->
+	<select id="noticelistDao" resultType="com.team.academy.dto.NoticeBoardDto">
+		SELECT t1.noticenum, t1.memberid, t1.noticetitle, t1.noticecontent, t1.noticedate, t1.noticehit, t2.membername
+    		FROM academy_noticeboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid
+    		ORDER by t1.noticenum DESC
+	</select>
+	
+	<!-- 자유게시판 제목으로 검색한 결과 리스트만 선택 -->
+ 	<select id="noticeTitleSearchList" resultType="com.team.academy.dto.NoticeBoardDto">
+ 		SELECT t1.noticenum, t1.memberid, t1.noticetitle, t1.noticecontent, t1.noticedate, t1.noticehit, t2.membername
+    		FROM academy_noticeboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t1.noticetitle LIKE '%' || #{param1 } || '%' 
+    		ORDER by t1.noticenum DESC 
+ 	</select>
+ 	
+ 	<!-- 자유게시판 내용으로 검색한 결과 리스트만 선택 -->
+ 	<select id="noticeContentSearchList" resultType="com.team.academy.dto.NoticeBoardDto">
+ 		SELECT t1.noticenum, t1.memberid, t1.noticetitle, t1.noticecontent, t1.noticedate, t1.noticehit, t2.membername
+    		FROM academy_noticeboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t1.noticecontent LIKE '%' || #{param1 } || '%' 
+    		ORDER by t1.noticenum DESC 
+ 	</select>
+ 	
+ 	<!-- 자유게시판 글쓴이로 검색한 결과 리스트만 선택 -->
+ 	<select id="noticeNameSearchList" resultType="com.team.academy.dto.NoticeBoardDto">
+ 		SELECT t1.noticenum, t1.memberid, t1.noticetitle, t1.noticecontent, t1.noticedate, t1.noticehit, t2.membername
+    		FROM academy_noticeboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t2.membername LIKE '%' || #{param1 } || '%' 
+    		ORDER by t1.noticenum DESC 
+ 	</select>
+ 	
+ 	<!-- 2개의 조건을 AND로 묶음(Join, 조건) -->
+	<select id="noticeviewDao" resultType="com.team.academy.dto.NoticeBoardDto">
+		SELECT t1.noticenum, t1.memberid, t1.noticetitle, t1.noticecontent, t1.noticedate, t1.noticehit, t2.membername
+    		FROM academy_noticeboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t1.noticenum=#{param1 }
+	</select>
+ 	
+ 	<!-- 함수 실행될때마다(클릭) noticehit값 1씩 증가 -->
+	<update id="noticehitDao">
+		UPDATE academy_noticeboard SET noticehit=noticehit+1 WHERE noticenum=#{param1 }
+	</update>
+	
 </mapper>
