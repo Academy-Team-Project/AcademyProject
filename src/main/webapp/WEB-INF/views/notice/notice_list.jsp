@@ -94,43 +94,10 @@
 										<td class="board_content" width="10%">DATE</td>
 									</tr>
 								</tbody>
-								<!-- 반복문 var은 글 하나당 붙일 이름 -->
-								<!-- 
-								<c:forEach items="" var="">
-									<tr> 
-										<td  class="board_content">1</td>
-										<td class="board_content">whitecat</td>
-										<td class="board_content" style="text-align: left;">
-											<a href="qView?qnum=" style="color: #808080;">
-												<c:choose>
-													<c:when test="">
-														<c:out value=""></c:out>...
-													</c:when>
-													<c:otherwise>
-														<c:out value=""></c:out>
-													</c:otherwise>											
-												</c:choose>
-											</a>
-										</td>
-										<td class="board_content">흰냥이</td>
-										<td class="board_content">
-											<c:out value=""></c:out>
-										</td>
-									</tr>
-								</c:forEach>
-								-->
-							<!-- 	
-								<tr>
-									<td colspan="5" align="right">
-										<input class="button" type="button" value="등록" onclick="location.href=''">
-										<input class="button" type="button" value="수정" onclick="location.href=''">
-										<input class="button" type="button" value="삭제" onclick="location.href=''">
-									</td>
-								</tr>
-							 -->
+								
 							</table>
 							<div align="right" class="board_inputbox">	
-								 <input class="button" type="button" value="등록" onclick="location.href=''">
+								 <input class="button" type="button" value="등록" onclick="location.href='/notice/notice_write'">
 								<input class="button" type="button" value="수정" onclick="location.href=''">
 								<input class="button" type="button" value="삭제" onclick="location.href=''">
 							</div>

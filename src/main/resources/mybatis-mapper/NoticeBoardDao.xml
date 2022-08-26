@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">		   <!-- mapper를 찾아주는 소스, mapper 선언 -->
+   
+<mapper namespace="com.team.academy.dao.NoticeBoardDao">		<!-- 위치 알려줘서 어디꺼 잡아야 하는지 지정 -->
+
+</mapper>
