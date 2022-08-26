@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>   <!-- 보여지는 글자수 제한을 위한 기능이 포함되어있음 -->  
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,7 @@
 			<table width="80%" height="80%" cellspacing="0" border="0" cellpadding="10" class="member_table"> 
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
-						<h2>수정된 정보 확인</h2> <br><br>
+						<h2>회원 상세정보</h2> <br><br>
 							<table width="85%" height="70%" border="0" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
 								<form action="memberModifyOk" name="member_modify_form"  method="post">
 									
@@ -55,7 +56,9 @@
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">생년월일 : </th>
-										<td class=""> ${memberDto.memberbirth } </td>
+										<td class="">
+											<c:out value="${fn:substring(memberDto.memberbirth, 0, 10) }"></c:out>
+										</td>
 									</tr>
 									
 									<tr>
@@ -73,16 +76,16 @@
 										<td> ${memberDto.memberaddress } </td>
 									</tr>
 									<tr>
+										<th class="member_title"  width="20%" align="left">가입일 : </th>
+										<td> 
+											<c:out value="${fn:substring(memberDto.enrolldate, 0, 10) }"></c:out>
+										</td>
+									</tr>
+									<tr>
 										<td colspan="6" align="right">
-											<input class="button" type="button" value="확인" onclick="location.href='/notice/notice_list'">
-											<%
-												String sessionid = (String) session.getAttribute("sessionId");
-												if (sessionid.equals("admin")) {
-											%>
-												<input class="button" type="button" value="목록" onclick="location.href='/member/member_list'">
-											<%
-												}
-											%>
+											<input class="button" type="button" value="수정" onclick="location.href='/member/memberModify'">&nbsp;&nbsp; 
+											<input class="button" type="button" value="목록" onclick="location.href='/member/member_list'">&nbsp;&nbsp;
+											<input class="button" type="button" value="삭제" onclick="#">
 										</td>
 									</tr>
 								</form>

@@ -2,24 +2,6 @@
  
  function modifyCheck() {
 	
-	if(document.member_modify_form.membertype.value.length == 0) {
-		alert("회원구분은 필수 입력사항입니다.");
-		member_modify_form.membertype.focus();
-		return;
-	}
-	
-	if(document.member_modify_form.memberid.value.length == 0) {
-		alert("아이디는 필수 입력사항입니다.");
-		member_modify_form.memberid.focus();
-		return;
-	}
-	
-	if(document.member_modify_form.memberid.value.length < 5) {
-		alert("아이디는 5글자 이상이어야 합니다.");
-		member_modify_form.memberid.focus();
-		return;
-	}
-	
 	if(document.member_modify_form.membername.value.length == 0) {
 		alert("이름은 필수 입력사항입니다.");
 		member_modify_form.membername.focus();

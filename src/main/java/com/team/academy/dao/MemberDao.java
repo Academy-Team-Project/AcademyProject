@@ -19,4 +19,6 @@ public interface MemberDao {	// 멤버 관련 Dao method, 추상 Method
 	public void membermodifyDao(String membername, String memberpw, String memberbirth, String membertel, String memberemail, String memberaddress, String memberid);	// 회원 정보 수정에 필요한 데이터목록, where 조건에 들어가는건 마지막에 넣어야함
 	
 	public ArrayList<MemberDto> memberlistDao();	// 회원 가입한 회원 목록을 가져와서 리스트 작성, 전부 가져오기 때문에 변수가 필요 없음
+
+	public MemberDto memberviewDao(String memberid);	// 회원 정보 상세보기(select이므로 dto자료형 필요)
 }

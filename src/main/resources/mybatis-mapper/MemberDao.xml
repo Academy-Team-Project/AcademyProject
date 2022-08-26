@@ -39,5 +39,9 @@
 	<select id="memberlistDao" resultType="com.team.academy.dto.MemberDto"> 	<!-- select타입은 result값이 있어야함 -->
 		SELECT * FROM academy_member ORDER BY memberid DESC
 	</select>
+	
+	<select id="memberviewDao" resultType="com.team.academy.dto.MemberDto">
+		SELECT * FROM academy_member WHERE memberid = #{param1 }
+	</select>
 
 </mapper>  

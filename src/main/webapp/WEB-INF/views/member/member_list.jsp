@@ -61,13 +61,15 @@
 								<c:forEach items="${memberlist }" var="memberdto">
 									<tr>
 										<td class="member_content">
-											<a href="#" style="color: #000000;">${memberdto.memberid }</a>
+											<a href="memberView?memberid=${memberdto.memberid }" style="color: #000000;">${memberdto.memberid }</a>
 										</td>
 										<td class="member_content" align="center">${memberdto.membername }</td>
 										<td class="member_content" align="center">${memberdto.membertype }</td>
-										<td class="lesson_content">${memberdto.membertel }</td>
-										<td class="lesson_content">${memberdto.memberemail }</td>
-										<td class="lesson_content">${memberdto.enrolldate }</td>
+										<td class="lesson_content" align="center">${memberdto.membertel }</td>
+										<td class="lesson_content" align="center">${memberdto.memberemail }</td>
+										<td class="lesson_content" align="center">
+											<c:out value="${fn:substring(memberdto.enrolldate, 0, 10) }"></c:out>
+										</td>
 									</tr>	
 								</c:forEach>	
 																

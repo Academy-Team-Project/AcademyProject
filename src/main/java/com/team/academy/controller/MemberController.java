@@ -102,6 +102,8 @@ public class MemberController {
 	@RequestMapping (value = "/member/memberModifyOk", method = RequestMethod.POST)
 	public String memberModifyOk(HttpServletRequest request, Model model) {
 		
+		HttpSession session = request.getSession();		// session
+
 		String memberid = request.getParameter("memberid");	// 아이디(유일값)로 데이터 검색해서 해당 정보를 수정하기 위해서 필요
 		String membername = request.getParameter("membername");
 		String memberpw = request.getParameter("memberpw");
@@ -116,18 +118,23 @@ public class MemberController {
 		
 		MemberDto memberDto = memberDao.memberdetailDao(memberid);	// 정보를 수정한 아이디의 모든 정보를 넘겨줌
 		
-		HttpSession session = request.getSession();		// session
-		
-		String memberId = memberDto.getMemberid();
-		String memberType = memberDto.getMembertype();
-		
-		session.setAttribute("sessionId", memberId);
-		session.setAttribute("sessionType", memberType);	// session에 올림
-		
 		model.addAttribute("memberDto", memberDto);
-		
 		
 		return "/member/memberModifyOk"; 
 	}
 	
+	
+	// 회원 상세보기 (관리자만)
+	@RequestMapping (value = "/member/memberView")
+	public String memberView(HttpServletRequest request, Model model) {
+		
+		String memberid = request.getParameter("memberid");		// 해당 회원의 유일값이 id를 뽑아서 넘김
+		
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		
+		MemberDto memberDto = memberDao.memberviewDao(memberid);
+		model.addAttribute("memberDto", memberDto);		// 반환(model에 담아서 배송서비스)
+		
+		return "/member/memberView";
+	}
 }

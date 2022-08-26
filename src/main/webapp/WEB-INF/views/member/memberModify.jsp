@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,62 +44,76 @@
 									<tr>
 										<th class="member_title" width="20%" align="left">ID</th>
 										<td class="">
-											<input class="input_box" type="text" name="" value="${memberDto.memberid }" readonly="readonly">
+											<input class="input_box" type="text" name="memberid" value="${memberDto.memberid }" readonly="readonly">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">이름</th>
 										<td class="">
-											<input class="input_box" type="text" name="" value="${memberDto.membername }" required="required">
+											<input class="input_box" type="text" name="membername" value="${memberDto.membername }" required="required">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">비밀번호</th>
 										<td class="">
-											<input class="input_box" type="password" name="" value="${memberDto.memberpw }" placeholder="8자리 이상 입력하세요" required="required">
+											<input class="input_box" type="password" name="memberpw" value="${memberDto.memberpw }" placeholder="8자리 이상 입력하세요" required="required">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">비밀번호 확인</th>
 										<td class="">
-											<input class="input_box" type="password" name="" placeholder="8자리 이상 입력하세요" required="required">
+											<input class="input_box" type="password" name="memberpwcheck" placeholder="8자리 이상 입력하세요" required="required">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">생년월일</th>
 										<td class="">
-											<input class="input_box" type="date" name="" value="${memberDto.memberbirth }">
+											<input class="input_box" type="date" name="memberbirth" value="${memberDto.memberbirth }">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">휴대전화</th>
 										<td>
-											<input class="input_box" type="tel" size="20"  placeholder=" '-' 없이 입력하세요" value="${memberDto.membertel }">
+											<input class="input_box" type="tel" size="20" name="membertel"  placeholder=" '-' 없이 입력하세요" value="${memberDto.membertel }">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left" >이메일</th>
 										<td>
-											<input type="email" size="30" placeholder="abc@abc.com" value="${memberDto.memberemail }" required="required">
+											<input type="email" size="30" name="memberemail" placeholder="abc@abc.com" value="${memberDto.memberemail }" required="required">
 										</td>
 									</tr>
 									
 									<tr>
 										<th class="member_title"  width="20%" align="left">주소</th>
 										<td>
-											<input type="text" size="100" value="${memberDto.memberaddress }">
+											<input type="text" size="100" name="memberaddress" value="${memberDto.memberaddress }">
 										</td>
 									</tr>
 									<tr>
 										<td colspan="6" align="right">
+											
 											<input class="button" type="button" value="수정" onclick="modifyCheck()">
-											<input class="button" type="button" value="취소" onclick="location.href='/notice/notice_list'">
+											
+											<%
+												String sessionid = (String) session.getAttribute("sessionId");
+												if (sessionid.equals("admin")) {
+											%>
+												<input class="button" type="button" value="취소" onclick="location.href='/member/member_list'">
+											<%
+												} else {
+											%>
+												<input class="button" type="button" value="취소" onclick="location.href='/notice/notice_list'">
+											<% 
+												}
+											%>
+											
 										</td>
 									</tr>
 								</form>
