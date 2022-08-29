@@ -19,6 +19,8 @@ public interface NoticeBoardDao {
 	
 	public void noticehitDao(String noticenum);		// 공지사항 조회수 증가 함수
 	
+	public void noticemodifyDao(String noticetitle, String noticecontent, String noticenum);	// 공지사항 글 수정 
+	
 	public void noticedeleteDao(String noticenum);	// 공지사항 글 삭제
 	
 }

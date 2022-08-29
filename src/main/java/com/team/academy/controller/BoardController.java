@@ -115,6 +115,34 @@ public class BoardController {
 	}
 	
 	
+	@RequestMapping (value = "/notice/notice_modify")
+	public String notice_modify(HttpServletRequest request, Model model) {
+		
+		
+		String noticenum = request.getParameter("noticenum"); // 작성글 번호(hidden으로 숨긴값) 
+		String noticetitle = request.getParameter("noticetitle"); // 게시글 제목 
+		String noticecontent = request.getParameter("noticecontent"); // 게시글 내용
+		
+		NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+		 
+		noticeBoardDao.noticemodifyDao(noticetitle, noticecontent, noticenum);
+		
+		return "redirect:notice_list";		
+	}
+	
+	@RequestMapping (value = "/notice/noticeDelete")
+	public String noticeDelete(HttpServletRequest request, Model model) {
+		
+		String noticenum = request.getParameter("noticenum");
+		
+		NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+		
+		noticeBoardDao.noticedeleteDao(noticenum);
+		
+		return "redirect:notice_list";
+	}
+	
+	
 	
 	// 질문게시판 메뉴로 이동하는 화면 반환
 	@RequestMapping (value = "/question/question_list")

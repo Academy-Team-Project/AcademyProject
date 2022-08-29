@@ -31,7 +31,8 @@
 					<td align="center" bgcolor="#FFFFFF">  
 						<h2>공지사항 보기</h2> <br><br>
 							<table width="85%" height="70%" border="0" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
-								<form action="#"  method="post" name="notice_write_form">
+								<form action="notice_modify"  method="post" name="notice_write_form">
+									<input type="hidden" name="noticenum" value="${noticeview.noticenum }"> <!-- 화면에는 숨긴 값 -->
 									
 									<tr>
 										<td class="notice_title" width="20%" align="left">ID : </td>
@@ -50,24 +51,26 @@
 									<tr>
 										<td class="notice_title"  width="20%" align="left">제목 : </td>
 										<td class="">
-											<input class="input_box" type="text" name="noticetitle" size="100" value="${noticeview.noticetitle }" readonly="readonly">
+											<input class="input_box" type="text" name="noticetitle" size="100" value="${noticeview.noticetitle }">
 										</td>
 									</tr>
 									
 									<tr>
 										<td class="notice_title"  width="20%" align="left">내용 : </td>
 										<td>
-											<textarea class="text_area" rows="30" cols="150" name="noticecontent" readonly="readonly">${noticeview.noticecontent }</textarea>
+											<textarea class="text_area" rows="30" cols="150" name="noticecontent">${noticeview.noticecontent }</textarea>
 										</td>
 									</tr>
 									
 									<tr>
 										<td colspan="2" align="right">
 										<%
-											String sessiontype = (String) session.getAttribute("sessionType");
-											if (sessiontype.equals("직원")) {
+											String sessionid = (String) session.getAttribute("sessionId");
+											String viewid = request.getAttribute("noticeviewId").toString();   // controller의 Model에서 넘어온 값 빼는 방법
+											if (sessionid.equals(viewid) || sessionid.equals("admin")) {
 										%>
-											<input class="button" type="button" value="수정" onclick="location.href='/notice/notice_modify'">&nbsp;
+											<input class="button" type="button" value="수정" onclick="noticeCheck()">&nbsp;
+											<input class="button" type="button" value="삭제" onclick="location.href='/notice/noticeDelete?noticenum='+${noticeview.noticenum}">&nbsp;
 										<%
 											}
 										%>	

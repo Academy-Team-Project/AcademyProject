@@ -55,4 +55,14 @@
 		UPDATE academy_noticeboard SET noticehit=noticehit+1 WHERE noticenum=#{param1 }
 	</update>
 	
+	<!-- 글 수정 -->
+	<update id="noticemodifyDao">
+		UPDATE academy_noticeboard SET noticetitle=#{param1 }, noticecontent= #{param2 } WHERE noticenum= #{param3 } 
+	</update>
+	
+	<!-- 글 삭제 -->
+		<delete id="noticedeleteDao">
+		DELETE FROM academy_noticeboard WHERE noticenum = #{param1 }
+	</delete>	
+	
 </mapper>
