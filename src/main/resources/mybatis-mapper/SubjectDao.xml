@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">		   <!-- mapper를 찾아주는 소스, mapper 선언 -->
+   
+<mapper namespace="com.team.academy.dao.SubjectDao">		<!-- 위치 알려줘서 어디꺼 잡아야 하는지 지정 -->
+
+	<!-- 수업 개설 -->
+	<insert id="subjectcreateDao" >
+		INSERT INTO academy_subject (subjectcode, subjectname, subjectcontent, subjectdays, subjectstudentmax, subjectclassroom, memberid) VALUES ( #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7} )
+	</insert>
+
+	<!-- Join : 테이블 이름 치환을 t1, t2로 함, orcle은 where절에서 join을 함 -->
+	<select id="subjectlistDao" resultType="com.team.academy.dto.SubjectDto">
+		SELECT t1.subjectcode, t1.subjectname, t1.subjectdays, t1.subjectstudentmax, t1.subjectclassroom, t1.memberid, t2.membername
+    		FROM academy_subject t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid
+    		ORDER by t1.subjectcode ASC
+	</select>
+	
+	<!-- 자유게시판 제목으로 검색한 결과 리스트만 선택 -->
+ 	<select id="subjectnameSearchList" resultType="com.team.academy.dto.SubjectDto">
+ 		SELECT t1.subjectcode, t1.subjectname, t1.subjectdays, t1.subjectstudentmax, t1.subjectclassroom, t1.memberid, t2.membername
+    		FROM academy_subject t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t1.subjectname LIKE '%' || #{param1 } || '%' 
+    		ORDER by t1.subjectcode DESC 
+ 	</select>
+ 	
+ 	<!-- 자유게시판 내용으로 검색한 결과 리스트만 선택 -->
+ 	<select id="subjectteacherSearchList" resultType="com.team.academy.dto.SubjectDto">
+ 		SELECT t1.subjectcode, t1.subjectname, t1.subjectdays, t1.subjectstudentmax, t1.subjectclassroom, t1.memberid, t2.membername
+    		FROM academy_subject t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t2.membername LIKE '%' || #{param1 } || '%' 
+    		ORDER by t1.subjectcode DESC 
+ 	</select>
+
+</mapper>
