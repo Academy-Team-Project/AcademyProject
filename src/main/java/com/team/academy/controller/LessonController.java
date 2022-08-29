@@ -91,15 +91,29 @@ public class LessonController {
 		HttpSession session = request.getSession();
 		
 		String memberid = (String) session.getAttribute("sessionId");	// id는 세션에서 뽑아냄
-		String membername = (String) session.getAttribute("sessionName");	// id는 세션에서 뽑아냄
 		 
-		
 		subjectDao.subjectcreateDao(subjectcode, subjectname, subjectcontent, subjectdays, subjectstudentmax, subjectclassroom, memberid);
 		
 		
-		model.addAttribute("membername", membername);
 		
 		return "redirect:lesson_list";
+	}
+	
+	
+	@RequestMapping (value = "/lesson/subject_view")
+	public String subject_view(HttpServletRequest request, Model model) {
+		
+		String subjectcode = request.getParameter("subjectcode");
+		
+		SubjectDao subjectDao = sqlSession.getMapper(SubjectDao.class);
+		SubjectDto subjectDto = subjectDao.subjectviewDao(subjectcode);
+		
+		model.addAttribute("subjectview", subjectDto);
+		model.addAttribute("subjectteacherId", subjectDto.getMemberid());	// 수업을 개설한 교사의 아이디 담기
+		
+		
+		
+		return "/lesson/subject_view";
 	}
 	
 	

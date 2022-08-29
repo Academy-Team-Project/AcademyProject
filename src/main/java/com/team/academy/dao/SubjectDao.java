@@ -14,4 +14,5 @@ public interface SubjectDao {
 	public ArrayList<SubjectDto> subjectnameSearchList(String keyword);		// 수업목록 수업명으로 검색한 결과 리스트 가져오기
 	public ArrayList<SubjectDto> subjectteacherSearchList(String keyword);	// 수업목록 담당교사로 검색한 결과 리스트 가져오기
 
+	public SubjectDto subjectviewDao(String subjectcode);	// 수업 내용 보기
 }

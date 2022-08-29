@@ -10,6 +10,7 @@ public class SubjectDto {
 	private String subjectstudentmax;	// 최대수강인원
 	private String subjectclassroom;	// 강의실
 	private String memberid;			// 담당교사 아이디
+	private String membername;			// 수업등록 교사 이름 => 회원 테이블 필드를 Join으로 가져옴
 	
 	
 	// 생성자
@@ -20,7 +21,8 @@ public class SubjectDto {
 
 	// 생성자 (인수O)
 	public SubjectDto(String subjectcode, String subjectname, String subjectcontent, String subjectdays,
-			String subjectstudents, String subjectstudentmax, String subjectclassroom, String memberid) {
+			String subjectstudents, String subjectstudentmax, String subjectclassroom, String memberid,
+			String membername) {
 		super();
 		this.subjectcode = subjectcode;
 		this.subjectname = subjectname;
@@ -30,9 +32,9 @@ public class SubjectDto {
 		this.subjectstudentmax = subjectstudentmax;
 		this.subjectclassroom = subjectclassroom;
 		this.memberid = memberid;
+		this.membername = membername;
 	}
 
-	
 	// Getter and Setter
 	public String getSubjectcode() {
 		return subjectcode;
@@ -98,4 +100,11 @@ public class SubjectDto {
 		this.memberid = memberid;
 	}
 
+	public String getMembername() {
+		return membername;
+	}
+
+	public void setMembername(String membername) {
+		this.membername = membername;
+	}
 }

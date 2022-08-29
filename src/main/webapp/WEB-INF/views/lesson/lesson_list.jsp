@@ -61,7 +61,7 @@
 											<td class="lesson_content"  width="50%">
 												<a href="subject_view?subjectcode=${dto.subjectcode }" style="color: #000000;">${dto.subjectname }</a>
 											</td>
-											<td class="lesson_content">${membername }</td>
+											<td class="lesson_content">${dto.membername}</td>
 											<td class="lesson_content">${dto.subjectclassroom }</td>
 											<td class="lesson_content">${dto.subjectdays }</td>
 											<td class="lesson_content">${dto.subjectstudentmax }</td>

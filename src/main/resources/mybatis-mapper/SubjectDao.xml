@@ -34,5 +34,12 @@
    		 	WHERE t1.memberid = t2.memberid AND t2.membername LIKE '%' || #{param1 } || '%' 
     		ORDER by t1.subjectcode DESC 
  	</select>
+ 	
+ 	<!-- 2개의 조건을 AND로 묶음(Join, 조건) -->
+	<select id="subjectviewDao" resultType="com.team.academy.dto.SubjectDto">
+		SELECT t1.subjectcode, t1.subjectname, t1.subjectcontent, t1.subjectdays, t1.subjectstudentmax, t1.subjectclassroom, t1.memberid, t2.membername
+    		FROM academy_subject t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t1.subjectcode=#{param1 }
+	</select>
 
 </mapper>
