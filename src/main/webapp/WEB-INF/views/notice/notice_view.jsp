@@ -36,35 +36,42 @@
 									<tr>
 										<td class="notice_title" width="20%" align="left">ID : </td>
 										<td class="">
-											<input class="input_box" type="text" name="memberid" value="${noticeview.memberid }" readonly="readonly">
+											<input class="input_box" type="text" name="memberid" size="50" value="${noticeview.memberid }" readonly="readonly">
 										</td>
 									</tr>
 									
 									<tr>
 										<td class="notice_title"  width="20%" align="left">이름 : </td>
 										<td class="">
-											<input class="input_box" type="text" name="membername" value="${noticeview.membername }" readonly="readonly">
+											<input class="input_box" type="text" name="membername" size="50" value="${noticeview.membername }" readonly="readonly">
 										</td>
 									</tr>
 									
 									<tr>
 										<td class="notice_title"  width="20%" align="left">제목 : </td>
 										<td class="">
-											<input class="input_box" type="text" name="noticetitle" value="${noticeview.noticetitle }">
+											<input class="input_box" type="text" name="noticetitle" size="100" value="${noticeview.noticetitle }" readonly="readonly">
 										</td>
 									</tr>
 									
 									<tr>
 										<td class="notice_title"  width="20%" align="left">내용 : </td>
 										<td>
-											<textarea class="text_area" rows="20" cols="50" name="noticecontent">${noticeview.noticecontent }</textarea>
+											<textarea class="text_area" rows="30" cols="150" name="noticecontent" readonly="readonly">${noticeview.noticecontent }</textarea>
 										</td>
 									</tr>
 									
 									<tr>
 										<td colspan="2" align="right">
-											<input class="button" type="button" value="등록" onclick="noticeCheck()">&nbsp;
-											<input class="button" type="button" value="취소" onclick="location.href='/notice/notice_list'">
+										<%
+											String sessiontype = (String) session.getAttribute("sessionType");
+											if (sessiontype.equals("직원")) {
+										%>
+											<input class="button" type="button" value="수정" onclick="location.href='/notice/notice_modify'">&nbsp;
+										<%
+											}
+										%>	
+											<input class="button" type="button" value="목록" onclick="location.href='/notice/notice_list'">
 										</td>
 									</tr>
 								</form>
