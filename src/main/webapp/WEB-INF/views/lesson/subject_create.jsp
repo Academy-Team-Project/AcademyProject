@@ -53,6 +53,8 @@
 										<th class="subject_title"  width="20%" align="left">수업일</th>
 										<td class="">
 											<input class="input_box" type="text" name="subjectdays" value="">
+											<br>
+											<p class="subject_info"> (월, 화, 수 목, 금, 토 중 해당 요일 입력) </p>
 										</td>
 									</tr>
 									
