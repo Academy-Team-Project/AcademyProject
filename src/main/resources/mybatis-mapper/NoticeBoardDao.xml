@@ -49,6 +49,15 @@
     		FROM academy_noticeboard t1, academy_member t2 
    		 	WHERE t1.memberid = t2.memberid AND t1.noticenum=#{param1 }
 	</select>
+	
+	<!-- 공지사항 상세정보 -->
+	<select id="noticedetailDao" resultType="com.team.academy.dto.NoticeBoardDto">
+		SELECT t1.noticenum, t1.memberid, t1.noticetitle, t1.noticecontent, t1.noticedate, t1.noticehit, t2.membername
+    		FROM academy_noticeboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t1.noticenum=#{param1 } 
+		<!-- SELECT * FROM academy_noticeboard WHERE noticenum= #{param1 }  -->
+		<!-- dto로 값을 반환해줌 -->
+	</select>
  	
  	<!-- 함수 실행될때마다(클릭) noticehit값 1씩 증가 -->
 	<update id="noticehitDao">

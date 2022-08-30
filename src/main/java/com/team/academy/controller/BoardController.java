@@ -116,21 +116,45 @@ public class BoardController {
 		return "/notice/notice_view";
 	}
 	
-	
+	// 공지사항 수정
 	@RequestMapping (value = "/notice/notice_modify")
 	public String notice_modify(HttpServletRequest request, Model model) {
 		
+		HttpSession session = request.getSession();
 		
 		String noticenum = request.getParameter("noticenum"); // 작성글 번호(hidden으로 숨긴값) 
-		String noticetitle = request.getParameter("noticetitle"); // 게시글 제목 
-		String noticecontent = request.getParameter("noticecontent"); // 게시글 내용
+		
 		
 		NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
 		 
+		NoticeBoardDto noticeBoardDto = noticeBoardDao.noticeviewDao(noticenum);	// 해당 공지사항에 대한 모든 정보를 dto로 반환
+		
+		model.addAttribute("noticeDto", noticeBoardDto);
+	
+		
+		
+		return "/notice/notice_modify";		
+	}
+	
+	// 공지사항 수정 완료
+	@RequestMapping (value = "/notice/notice_modifyOk")
+	public String notice_modifyOk(HttpServletRequest request, Model model) {
+		
+		String noticenum = request.getParameter("noticenum"); // 작성글 번호(hidden으로 숨긴값) 
+		String noticetitle = request.getParameter("noticetitle");
+		String noticecontent = request.getParameter("noticecontent");
+		
+		NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+		
 		noticeBoardDao.noticemodifyDao(noticetitle, noticecontent, noticenum);
 		
-		return "redirect:notice_list";		
+		NoticeBoardDto noticeBoardDto = noticeBoardDao.noticedetailDao(noticenum);	// 정보를 수정한 공지사항의 모든 정보를 넘겨줌
+		
+		model.addAttribute("noticeBoardDto", noticeBoardDto);
+		
+		return "/notice/notice_modifyOk";
 	}
+	
 	
 	@RequestMapping (value = "/notice/noticeDelete")
 	public String noticeDelete(HttpServletRequest request, Model model) {

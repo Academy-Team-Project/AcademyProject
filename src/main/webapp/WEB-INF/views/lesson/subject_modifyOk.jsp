@@ -31,7 +31,7 @@
 					<td align="center" bgcolor="#FFFFFF">  
 						<h2>수 업 등 록</h2> <br><br>
 							<table width="85%" height="70%" border="0" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
-								<form action="subject_modify" name="subject_create_form"  method="post">
+								<form action="/lesson/lesson_list" name="subject_create_form"  method="post">
 									
 									<tr>
 										<th class="subject_title" width="20%" align="left">수업코드</th>

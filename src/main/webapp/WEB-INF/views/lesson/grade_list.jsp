@@ -25,7 +25,7 @@
 					<span class="lesson_main_title02"></span>
 				</td>
 			</tr>
-			<!-- 내부 테이블 -->-
+			<!-- 내부 테이블 -->
 			<table width="80%" height="80%" cellspacing="0" border="0" cellpadding="10" class="lesson_table"> 
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
