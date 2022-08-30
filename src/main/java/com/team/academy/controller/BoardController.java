@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.team.academy.dao.MemberDao;
 import com.team.academy.dao.NoticeBoardDao;
+import com.team.academy.dao.QuestionBoardDao;
 import com.team.academy.dto.MemberDto;
 import com.team.academy.dto.NoticeBoardDto;
+import com.team.academy.dto.QuestionBoardDto;
 
 @Controller
 public class BoardController {
@@ -145,10 +147,111 @@ public class BoardController {
 	
 	
 	// 질문게시판 메뉴로 이동하는 화면 반환
-	@RequestMapping (value = "/question/question_list")
-	public String question_list() {
+		@RequestMapping (value = "/question/question_list")
+		public String question_list(HttpServletRequest request, Model model) {
+			
+			String searchKeyword = request.getParameter("searchKeyword");
+			String searchOption = request.getParameter("searchOption");
+			
+			HttpSession session = request.getSession();		// session
+			
+			QuestionBoardDao questionboardDao = sqlSession.getMapper(QuestionBoardDao.class);
+			
+//			[게시판 검색 파트]		
+			ArrayList<QuestionBoardDto> questionboardDto = null;
+			
+			if(searchKeyword == null) {	// 검색할 키워드를 입력하지 않았을때 리스트 목록 전체출력
+				questionboardDto = questionboardDao.questionlistDao();
+			}
+			else if (searchOption.equals("title")) {
+				questionboardDto = questionboardDao.questionTitleSearchList(searchKeyword);
+			}
+			else if (searchOption.equals("content")) {
+				questionboardDto = questionboardDao.questionContentSearchList(searchKeyword);
+			}
+			else if (searchOption.equals("writer")) {
+				questionboardDto = questionboardDao.questionNameSearchList(searchKeyword);
+			}
+			
+			model.addAttribute("questionlist", questionboardDto);
+			
+			return "/question/question_list";
+		}
 		
-		return "/question/question_list";
-	}	
+//		question_write
+		@RequestMapping (value = "/question/question_write")
+		public String question_write(HttpServletRequest request, Model model) {
+			
+			HttpSession session = request.getSession();
+			
+			String sessionId = (String) session.getAttribute("sessionId");
+			String sessionName = (String) session.getAttribute("sessionName");
+			String sessionType = (String) session.getAttribute("sessionType");
+			
+			MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+			
+			return "/question/question_write";
+		}
+		
+		
+		@RequestMapping (value = "/question/question_writeOk", method = RequestMethod.POST)
+		public String question_writeOk(HttpServletRequest request, Model model) {
+			
+			String questiontitle = request.getParameter("questiontitle");
+			String questioncontent = request.getParameter("questioncontent");
+			
+			QuestionBoardDao questionboardDao = sqlSession.getMapper(QuestionBoardDao.class);
+			
+			HttpSession session = request.getSession();
+			
+			String memberid = (String) session.getAttribute("sessionId");	// id는 세션에서 뽑아냄
+			
+			questionboardDao.questionwriteDao(memberid, questiontitle, questioncontent);
+			
+			return "redirect:question_list";
+		}
+		
+		@RequestMapping (value = "/question/question_view")
+		public String question_view(HttpServletRequest request, Model model) {
+			
+			String questionnum = request.getParameter("questionnum");
+			
+			QuestionBoardDao questionboardDao = sqlSession.getMapper(QuestionBoardDao.class);
+			
+			questionboardDao.questionhitDao(questionnum);		// 조회수 증가 함수 호출(클릭시 1씩 증가)
+			
+			QuestionBoardDto questionBoardDto = questionboardDao.questionviewDao(questionnum);
+			
+			model.addAttribute("questionview", questionBoardDto);
+			model.addAttribute("questionviewId", questionBoardDto.getMemberid());	// 질문게시판 작성자 아이디 불러오기
+			
+			return "/question/question_view";
+		}
+		
+		@RequestMapping (value = "/question/question_modify")
+		public String question_modify(HttpServletRequest request, Model model) {
+					
+			String questionnum = request.getParameter("questionnum"); // 작성글 번호(hidden으로 숨긴값) 
+			String questiontitle = request.getParameter("questiontitle"); // 게시글 제목 
+			String questioncontent = request.getParameter("questioncontent"); // 게시글 내용
+			
+			QuestionBoardDao questionboardDao = sqlSession.getMapper(QuestionBoardDao.class);
+			 
+			questionboardDao.questionmodifyDao(questiontitle, questioncontent, questionnum);
+			
+			return "redirect:question_list";		
+		}
+		
+		@RequestMapping (value = "/question/questionDelete")
+		public String questionDelete(HttpServletRequest request, Model model) {
+			
+			String questionnum = request.getParameter("questionnum");
+			
+			QuestionBoardDao questionboardDao = sqlSession.getMapper(QuestionBoardDao.class);
+			
+			questionboardDao.questiondeleteDao(questionnum);
+			
+			return "redirect:question_list";
+		}
 	
 }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>   <!-- 보여지는 글자수 제한을 위한 기능이 포함되어있음 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,10 +38,11 @@
 						        <select name="searchOption">
 						            <option value="title">제목</option>
 						            <option value="content">내용</option>
-						            <option value="name">글쓴이</option>
+						            <option value="writer">글쓴이</option>
 								</select> 
 								<input type="text" name="searchKeyword">
 								<input class="button" type="submit" value="Search">
+								<!-- <input class="button" type="button" value="Search" onclick="location.href=''"> -->
 							</div>
 					    </form>
 							<table width="85%" height="70%" border="1" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
@@ -54,85 +57,34 @@
 								</thead>
 								
 								<tbody>
-									<tr>
-										<td class="board_content">1</td>
-										<td class="board_content" width="70%">
-											<a href="#" style="color: #000000;">감자전</a>
-										</td>
-										<td class="board_content">감자</td>
-										<td class="board_content">0</td>
-										<td class="board_content" width="10%">DATE</td>
-									</tr>
-									
-									<tr>
-										<td class="board_content">2</td>
-										<td class="board_content" width="70%">
-											<a href="#" style="color: #000000;">맛탕</a>
-										</td>
-										<td class="board_content">고구마</td>
-										<td class="board_content">0</td>
-										<td class="board_content"width="10%">DATE</td>
-									</tr>
-									
-									<tr>
-										<td class="board_content">3</td>
-										<td class="board_content" width="70%">
-											<a href="#" style="color: #000000;">새우깡</a>
-										</td>
-										<td class="board_content">새우</td>
-										<td class="board_content">0</td>
-										<td class="board_content" width="10%">DATE</td>
-									</tr>
-									
-									<tr>
-										<td class="board_content">4</td>
-										<td class="board_content" width="70%">
-											<a href="#" style="color: #000000;">양파링</a>
-										</td>
-										<td class="board_content">양파</td>
-										<td class="board_content">0</td>
-										<td class="board_content" width="10%">DATE</td>
-									</tr>
+									<c:forEach items="${questionlist }" var="dto">
+										<tr>
+											<td class="board_content" align="center">${dto.questionnum }</td>
+											<td class="board_content" width="60%">
+												<a href="question_view?questionnum=${dto.questionnum }" style="color: #000000; text-align: left;">
+													<c:choose>
+														<c:when test="${fn:length(dto.questiontitle) > 35}">
+															<c:out value="${fn:substring(dto.questiontitle, 0, 35) }"></c:out>...
+														</c:when>
+														<c:otherwise>
+															<c:out value="${dto.questiontitle }"></c:out>
+														</c:otherwise>											
+													</c:choose>
+												</a>
+											</td>
+											<td class="board_content" align="center">${dto.membername }</td>
+											<td class="board_content" align="center">${dto.questionhit }</td>
+											<td class="board_content" width="10%" align="center">
+												<c:out value="${fn:substring(dto.questiondate, 0, 10) }"></c:out>
+											</td>
+										</tr>
+									</c:forEach>
 								</tbody>
-								<!-- 반복문 var은 글 하나당 붙일 이름 -->
-								<!-- 
-								<c:forEach items="" var="">
-									<tr> 
-										<td  class="board_content">1</td>
-										<td class="board_content">whitecat</td>
-										<td class="board_content" style="text-align: left;">
-											<a href="qView?qnum=" style="color: #808080;">
-												<c:choose>
-													<c:when test="">
-														<c:out value=""></c:out>...
-													</c:when>
-													<c:otherwise>
-														<c:out value=""></c:out>
-													</c:otherwise>											
-												</c:choose>
-											</a>
-										</td>
-										<td class="board_content">흰냥이</td>
-										<td class="board_content">
-											<c:out value=""></c:out>
-										</td>
-									</tr>
-								</c:forEach>
-								-->
-								<!-- 
-								<tr>
-									<td colspan="5" align="right">
-										<input class="button" type="button" value="등록" onclick="location.href=''">
-										<input class="button" type="button" value="수정" onclick="location.href=''">
-										<input class="button" type="button" value="삭제" onclick="location.href=''">
-									</td>
-								</tr>
-								 -->
 							</table>
 							<div align="right" class="board_inputbox">	
-								 <input class="button" type="button" value="등록" onclick="location.href=''">
-								<input class="button" type="button" value="수정" onclick="location.href=''">
-								<input class="button" type="button" value="삭제" onclick="location.href=''">
+								 <input class="button" type="button" value="등록" onclick="location.href='/question/question_write'">
+								 
+								
 							</div>
 						</td>
 					</tr>

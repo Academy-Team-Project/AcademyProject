@@ -11,16 +11,18 @@ public class QuestionBoardDto {
 	private int	questiongroup;			// 질문게시판 답글과의 그룹화(1개의 글에 답글 여러개를 묶음)
 	private int questionstep;			// 질문게시판 답글 단계
 	private int questionindent;			// 질문게시판 답글의 단계에 따른 들여쓰기
+	private String membername;			// 질문게시판 작성자 이름 => 회원 테이블 필드를 Join으로 가져옴
 	
-	//  생성자
+	//생성자
 	public QuestionBoardDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	// 생성자(인수O)
+	
+	//생성자(인수 O)
 	public QuestionBoardDto(int questionnum, String memberid, String questiontitle, String questioncontent,
-			String questiondate, int questionhit, int questiongroup, int questionstep, int questionindent) {
+			String questiondate, int questionhit, int questiongroup, int questionstep, int questionindent,
+			String membername) {
 		super();
 		this.questionnum = questionnum;
 		this.memberid = memberid;
@@ -31,9 +33,10 @@ public class QuestionBoardDto {
 		this.questiongroup = questiongroup;
 		this.questionstep = questionstep;
 		this.questionindent = questionindent;
+		this.membername = membername;
 	}
-
-	// Getter and Setter
+	
+	//Getter and Setter
 	public int getQuestionnum() {
 		return questionnum;
 	}
@@ -104,5 +107,13 @@ public class QuestionBoardDto {
 
 	public void setQuestionindent(int questionindent) {
 		this.questionindent = questionindent;
+	}
+
+	public String getMembername() {
+		return membername;
+	}
+
+	public void setMembername(String membername) {
+		this.membername = membername;
 	}
 }

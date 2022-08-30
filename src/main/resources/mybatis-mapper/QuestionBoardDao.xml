@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">		   <!-- mapper를 찾아주는 소스, mapper 선언 -->
+   
+<mapper namespace="com.team.academy.dao.QuestionBoardDao">		<!-- 위치 알려줘서 어디꺼 잡아야 하는지 지정 -->
+	
+	<!-- 질문게시판 게시글 등록 -->
+	<insert id="questionwriteDao" >
+		INSERT INTO academy_questionboard (questionnum, memberid, questiontitle, questioncontent, questionhit) VALUES (academy_questionboard_seq.nextval, #{param1}, #{param2}, #{param3}, 0)
+	</insert>
+	
+	<!-- Join : 테이블 이름 치환을 t1, t2로 함, oracle은 where절에서 join을 함 -->
+	<select id="questionlistDao" resultType="com.team.academy.dto.QuestionBoardDto">
+		SELECT t1.questionnum, t1.memberid, t1.questiontitle, t1.questioncontent, t1.questiondate, t1.questionhit, t2.membername
+    		FROM academy_questionboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid
+    		ORDER by t1.questionnum DESC
+	</select>
+	
+	<!-- 질문게시판 제목으로 검색한 결과 리스트만 선택 -->
+ 	<select id="questionTitleSearchList" resultType="com.team.academy.dto.QuestionBoardDto">
+ 		SELECT t1.questionnum, t1.memberid, t1.questiontitle, t1.questioncontent, t1.questiondate, t1.questionhit, t2.membername
+    		FROM academy_questionboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t1.questiontitle LIKE '%' || #{param1 } || '%' 
+    		ORDER by t1.questionnum DESC 
+ 	</select>
+ 	
+ 	<!-- 질문게시판 내용으로 검색한 결과 리스트만 선택 -->
+ 	<select id="questionContentSearchList" resultType="com.team.academy.dto.QuestionBoardDto">
+ 		SELECT t1.questionnum, t1.memberid, t1.questiontitle, t1.questioncontent, t1.questiondate, t1.questionhit, t2.membername
+    		FROM academy_questionboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t1.questioncontent LIKE '%' || #{param1 } || '%' 
+    		ORDER by t1.questionnum DESC 
+ 	</select>
+ 	
+ 	<!-- 질문게시판 글쓴이로 검색한 결과 리스트만 선택 -->
+ 	<select id="questionNameSearchList" resultType="com.team.academy.dto.QuestionBoardDto">
+ 		SELECT t1.questionnum, t1.memberid, t1.questiontitle, t1.questioncontent, t1.questiondate, t1.questionhit, t2.membername
+    		FROM academy_questionboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t2.membername LIKE '%' || #{param1 } || '%' 
+    		ORDER by t1.questionnum DESC 
+ 	</select>
+	
+	
+	<!-- 2개의 조건을 AND로 묶음(Join, 조건) -->
+	<select id="questionviewDao" resultType="com.team.academy.dto.QuestionBoardDto">
+		SELECT t1.questionnum, t1.memberid, t1.questiontitle, t1.questioncontent, t1.questiondate, t1.questionhit, t2.membername
+    		FROM academy_questionboard t1, academy_member t2 
+   		 	WHERE t1.memberid = t2.memberid AND t1.questionnum=#{param1 }
+	</select>
+ 	
+ 	<!-- 함수 실행될때마다(클릭) noticehit값 1씩 증가 -->
+	<update id="questionhitDao">
+		UPDATE academy_questionboard SET questionhit=questionhit+1 WHERE questionnum=#{param1 }
+	</update>
+	
+	<!-- 글 수정 -->
+	<update id="questionmodifyDao">
+		UPDATE academy_questionboard SET questiontitle=#{param1 }, questioncontent= #{param2 } WHERE questionnum= #{param3 } 
+	</update>
+	
+	<!-- 글 삭제 -->
+		<delete id="questiondeleteDao">
+		DELETE FROM academy_questionboard WHERE questionnum = #{param1 }
+	</delete>
+
+</mapper>
