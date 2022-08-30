@@ -91,8 +91,9 @@ public class LessonController {
 		HttpSession session = request.getSession();
 		
 		String memberid = (String) session.getAttribute("sessionId");	// id는 세션에서 뽑아냄
+		String membername = (String) session.getAttribute("sessionName");	// id는 세션에서 뽑아냄
 		 
-		subjectDao.subjectcreateDao(subjectcode, subjectname, subjectcontent, subjectdays, subjectstudentmax, subjectclassroom, memberid);
+		subjectDao.subjectcreateDao(subjectcode, subjectname, subjectcontent, subjectdays, subjectstudentmax, subjectclassroom, memberid, membername);
 		
 		
 		
@@ -120,11 +121,52 @@ public class LessonController {
 	@RequestMapping (value = "/lesson/subject_modify")
 	public String subject_modify(HttpServletRequest request, Model model) {
 		
+		String subjectcode = request.getParameter("subjectcode");
+		
+		SubjectDao subjectDao = sqlSession.getMapper(SubjectDao.class);
+		
+		SubjectDto subjectDto = subjectDao.subjectdetailDao(subjectcode);	// 해당 수업의 모든 정보는 dto로 반환
+		
+		model.addAttribute("subjectDto", subjectDto);
 		
 		
 		return "/lesson/subject_modify";
 	}
 	
+	
+	@RequestMapping (value = "/lesson/subject_modifyOk")
+	public String subject_modifyOk(HttpServletRequest request, Model model) {
+		
+		String subjectcode = request.getParameter("subjectcode");	// 수업 코드(유일값)으로 데이터를 검색해서 해당 정보를 수정하기 위해서 필요
+		String subjectname = request.getParameter("subjectname");
+		String subjectcontent = request.getParameter("subjectcontent");
+		String subjectdays = request.getParameter("subjectdays");
+		String subjectstudentmax = request.getParameter("subjectstudentmax");
+		String subjectclassroom = request.getParameter("subjectclassroom");
+				
+		SubjectDao subjectDao = sqlSession.getMapper(SubjectDao.class);
+		
+		subjectDao.subjectmodifyDao(subjectname, subjectcontent, subjectdays, subjectstudentmax, subjectclassroom, subjectcode);
+			
+		SubjectDto subjectDto = subjectDao.subjectdetailDao(subjectcode);	// 정보를 수정한 수업의 모든 정보를 넘겨줌
+		
+		model.addAttribute("subjectDto", subjectDto);
+		
+		return "/lesson/subject_modifyOk";
+	}
+	
+	
+	@RequestMapping (value = "/lesson/subjectDelete")
+	public String subjectDelete(HttpServletRequest request, Model model) {
+		
+		String subjectcode = request.getParameter("subjectcode");
+		
+		SubjectDao subjectDao = sqlSession.getMapper(SubjectDao.class);
+		
+		subjectDao.subjectdeleteDao(subjectcode);
+		
+		return "redirect:lesson_list";
+	}
 	
 	
 	

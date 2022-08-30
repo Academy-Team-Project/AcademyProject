@@ -61,7 +61,7 @@
 	</update>
 	
 	<!-- 글 삭제 -->
-		<delete id="noticedeleteDao">
+	<delete id="noticedeleteDao">
 		DELETE FROM academy_noticeboard WHERE noticenum = #{param1 }
 	</delete>	
 	

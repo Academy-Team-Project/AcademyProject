@@ -8,7 +8,7 @@
 
 	<!-- 수업 개설 -->
 	<insert id="subjectcreateDao" >
-		INSERT INTO academy_subject (subjectcode, subjectname, subjectcontent, subjectdays, subjectstudentmax, subjectclassroom, memberid) VALUES ( #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7} )
+		INSERT INTO academy_subject (subjectcode, subjectname, subjectcontent, subjectdays, subjectstudentmax, subjectclassroom, memberid, membername) VALUES ( #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8} )
 	</insert>
 
 	<!-- Join : 테이블 이름 치환을 t1, t2로 함, orcle은 where절에서 join을 함 -->
@@ -41,5 +41,20 @@
     		FROM academy_subject t1, academy_member t2 
    		 	WHERE t1.memberid = t2.memberid AND t1.subjectcode=#{param1 }
 	</select>
+	
+	<!-- 수업 정보 -->
+	<select id="subjectdetailDao" resultType="com.team.academy.dto.SubjectDto">
+		SELECT * FROM academy_subject WHERE subjectcode= #{param1}
+		<!-- dto로 값을 반환해줌 -->
+	</select>
+	
+	<!-- 수업 수정 -->
+	<update id="subjectmodifyDao">
+		UPDATE academy_subject SET subjectname= #{param1 }, subjectcontent= #{param2 }, subjectdays= #{param3 }, subjectstudentmax= #{param4 }, subjectclassroom= #{param5 } WHERE subjectcode= #{param6 }
+	</update>
 
+	<!-- 수업 삭제 -->
+	<delete id="subjectdeleteDao">
+		DELETE FROM academy_subject WHERE subjectcode = #{param1 }
+	</delete>
 </mapper>

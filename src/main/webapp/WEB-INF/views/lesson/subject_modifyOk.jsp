@@ -31,64 +31,48 @@
 					<td align="center" bgcolor="#FFFFFF">  
 						<h2>수 업 등 록</h2> <br><br>
 							<table width="85%" height="70%" border="0" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
-								<form action="subject_modifyOk" name="subject_create_form"  method="post">
+								<form action="subject_modify" name="subject_create_form"  method="post">
 									
 									<tr>
 										<th class="subject_title" width="20%" align="left">수업코드</th>
-										<td class="">
-											<input class="input_box" type="text" name="subjectcode" value="${subjectDto.subjectcode }" required="required" readonly="readonly">
-											<br>
-											<p class="subject_info"> (국어: 10001~, 영어: 20001~, 수학: 30001~, 사회: 40001~ 과학: 50001~, 기타: 90001~) </p>
-										</td>
+										<td class="">${subjectDto.subjectcode }</td>
 									</tr>
 								
 									<tr>
 										<th class="subject_title" width="20%" align="left">수업명</th>
-										<td class="">
-											<input class="input_box" type="text" name="subjectname" value="${subjectDto.subjectname }" required="required">
-										</td>
+										<td class="">${subjectDto.subjectname }</td>
 									</tr>
 									
 									<tr>
 										<th class="subject_title"  width="20%" align="left">수업일</th>
-										<td class="">
-											<input class="input_box" type="text" name="subjectdays" value="${subjectDto.subjectdays }">
-										</td>
+										<td class="">${subjectDto.subjectdays }</td>
 									</tr>
 									
 									<tr>
 										<th class="subject_title"  width="20%" align="left">최대수강인원</th>
-										<td class="">
-											<input class="input_box" type="text" name="subjectstudentmax" value="${subjectDto.subjectstudentmax }" placeholder="인원수만 입력해주세요">
-										</td>
+										<td class="">${subjectDto.subjectstudentmax }</td>
 									</tr>
 									
 									<tr>
 										<th class="subject_title"  width="20%" align="left">강의실</th>
-										<td class="">
-											<input class="input_box" type="text" name="subjectclassroom" value="${subjectDto.subjectclassroom }">
-										</td>
+										<td class="">${subjectDto.subjectclassroom }</td>
 									</tr>
 									
 									<tr>
 										<th class="subject_title"  width="20%" align="left">담당교사</th>
-										<td>
-											<input class="input_box" type="text" name="membername" value="${subjectDto.membername }" readonly="readonly">
-										</td>
+										<td>${subjectDto.membername }</td>
 									</tr>
 					
 									<tr>
 										<th class="subject_title"  width="20%" align="left">수업내용</th>
 										<td class="">
-											<textarea class="text_area" rows="20" cols="100" name="subjectcontent" required="required">${subjectDto.subjectcontent }</textarea>
+											<textarea class="text_area" rows="20" cols="100" name="subjectcontent" readonly="readonly">${subjectDto.subjectcontent }</textarea>
 										</td>
 									</tr>
 									
 									<tr>
 										<td colspan="6" align="right">
-										
-											<input class="button" type="button" value="수정" onclick="subjectCheck()">
-											<input class="button" type="button" value="목록" onclick="location.href='/lesson/lesson_list'">
+											<input class="button" type="button" value="확인" onclick="location.href='/lesson/lesson_list'">&nbsp;&nbsp;
 										</td>
 									</tr>
 								</form>
