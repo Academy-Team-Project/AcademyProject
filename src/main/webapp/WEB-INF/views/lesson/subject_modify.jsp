@@ -35,38 +35,52 @@
 									
 									<tr>
 										<th class="subject_title" width="20%" align="left">수업코드</th>
-										<td class="">${subjectview.subjectcode }</td>
+										<td class="">
+											<input class="input_box" type="text" name="subjectcode" value="${subjectview.subjectcode }" required="required">
+											<br>
+											<p class="subject_info"> (국어: 10001~, 영어: 20001~, 수학: 30001~, 사회: 40001~ 과학: 50001~, 기타: 90001~) </p>
+										</td>
 									</tr>
 								
 									<tr>
 										<th class="subject_title" width="20%" align="left">수업명</th>
-										<td class="">${subjectview.subjectname }</td>
+										<td class="">
+											<input class="input_box" type="text" name="subjectname" value="${subjectview.subjectname }" required="required">
+										</td>
 									</tr>
 									
 									<tr>
 										<th class="subject_title"  width="20%" align="left">수업일</th>
-										<td class="">${subjectview.subjectdays }</td>
+										<td class="">
+											<input class="input_box" type="text" name="subjectdays" value="${subjectview.subjectdays }">
+										</td>
 									</tr>
 									
 									<tr>
 										<th class="subject_title"  width="20%" align="left">최대수강인원</th>
-										<td class="">${subjectview.subjectstudentmax }</td>
+										<td class="">
+											<input class="input_box" type="text" name="subjectstudentmax" value="${subjectview.subjectstudentmax }" placeholder="인원수만 입력해주세요">
+										</td>
 									</tr>
 									
 									<tr>
 										<th class="subject_title"  width="20%" align="left">강의실</th>
-										<td class="">${subjectview.subjectclassroom }</td>
+										<td class="">
+											<input class="input_box" type="text" name="subjectclassroom" value="${subjectview.subjectclassroom }">
+										</td>
 									</tr>
 									
 									<tr>
 										<th class="subject_title"  width="20%" align="left">담당교사</th>
-										<td>${subjectview.membername }</td>
+										<td>
+											<input class="input_box" type="text" name="membername" value="${subjectview.membername }" size="20" placeholder=" '-' 없이 입력하세요" readonly="readonly">
+										</td>
 									</tr>
 					
 									<tr>
 										<th class="subject_title"  width="20%" align="left">수업내용</th>
 										<td class="">
-											<textarea class="text_area" rows="20" cols="100" name="subjectcontent" readonly="readonly">${subjectview.subjectcontent }</textarea>
+											<textarea class="text_area" rows="20" cols="100" name="subjectcontent" required="required">${subjectview.subjectcontent }</textarea>
 										</td>
 									</tr>
 									
@@ -75,15 +89,11 @@
 										<%
 											String sessionid = (String) session.getAttribute("sessionId");
 											String viewid = request.getAttribute("subjectteacherId").toString();   // controller의 Model에서 넘어온 값 빼는 방법
-											if (sessionid.equals(viewid)) {
+											if (sessionid.equals(viewid) || sessionid.equals("admin")) {
 										%>
-											<input class="button" type="button" value="수정" onclick="location.href='/lesson/subject_modify'">&nbsp;&nbsp;
-											<input class="button" type="button" value="삭제" onclick="location.href='/lesson/subjectDelete?subjectcode='+${subjectview.subjectcode}">&nbsp;&nbsp;
+											<input class="button" type="button" value="수정" onclick="subjectCheck()">
+											<input class="button" type="button" value="삭제" onclick="location.href='/lesson/subjectDelete?subjectcode='+${subjectview.subjectcode}">
 										<%
-											} else if (sessionid.equals(viewid) || sessionid.equals("admin")) {
-										%>
-											<input class="button" type="button" value="삭제" onclick="location.href='/lesson/subjectDelete?subjectcode='+${subjectview.subjectcode}">&nbsp;&nbsp;
-										<%		
 											}
 										%>	
 											<input class="button" type="button" value="목록" onclick="location.href='/lesson/lesson_list'">

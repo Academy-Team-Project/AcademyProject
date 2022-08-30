@@ -83,7 +83,16 @@
 									</tr>
 									<tr>
 										<td colspan="6" align="right">
-											<input class="button" type="button" value="수정" onclick="location.href='/member/memberModify'">&nbsp;&nbsp; 
+										<%
+											String sessionid = (String) session.getAttribute("sessionId");
+											String viewid = request.getAttribute("memberviewid").toString();   // controller의 Model에서 넘어온 값 빼는 방법
+											if (sessionid.equals(viewid)) {
+										%>
+											<input class="button" type="button" value="수정" onclick="location.href='/member/memberModify'">&nbsp;&nbsp;
+											 
+										<%
+											}
+										%>	 
 											<input class="button" type="button" value="목록" onclick="location.href='/member/member_list'">&nbsp;&nbsp;
 											<input class="button" type="button" value="삭제" onclick="location.href='/member/memberDelete?memberid='+${memberDto.memberid }">
 										</td>

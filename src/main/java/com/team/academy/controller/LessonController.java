@@ -117,6 +117,15 @@ public class LessonController {
 	}
 	
 	
+	@RequestMapping (value = "/lesson/subject_modify")
+	public String subject_modify(HttpServletRequest request, Model model) {
+		
+		
+		
+		return "/lesson/subject_modify";
+	}
+	
+	
 	
 	
 	@RequestMapping (value = "/lesson/mylesson_list")

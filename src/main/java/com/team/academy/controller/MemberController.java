@@ -149,6 +149,7 @@ public class MemberController {
 		
 		MemberDto memberDto = memberDao.memberviewDao(memberid);
 		model.addAttribute("memberDto", memberDto);		// 반환(model에 담아서 배송서비스)
+		model.addAttribute("memberviewid", memberDto.getMemberid());
 		
 		return "/member/memberView";
 	}
