@@ -180,7 +180,29 @@ public class LessonController {
 	
 	
 	@RequestMapping (value = "/lesson/mylesson_list")
-	public String mylesson_list() {
+	public String mylesson_list(HttpServletRequest request, Model model) {
+		
+		String searchKeyword = request.getParameter("searchKeyword");
+		String searchOption = request.getParameter("searchOption");
+		
+		HttpSession session = request.getSession();		// session
+		
+		SubjectDao subjectDao = sqlSession.getMapper(SubjectDao.class);
+		
+//		[게시판 검색 파트]		
+		ArrayList<SubjectDto> subjectDto = null;
+		
+		if(searchKeyword == null) {	// 검색할 키워드를 입력하지 않았을때 리스트 목록 전체출력
+			subjectDto = subjectDao.subjectlistDao();
+		}
+		else if (searchOption.equals("subjectname")) {
+			subjectDto = subjectDao.subjectnameSearchList(searchKeyword);
+		}
+		else if (searchOption.equals("teacher")) {
+			subjectDto = subjectDao.subjectteacherSearchList(searchKeyword);
+		}
+		
+		model.addAttribute("subjectList", subjectDto);
 		
 		return "/lesson/mylesson_list";
 	}	// 내수업 메뉴를 선택하면 동작하는 화면 반환

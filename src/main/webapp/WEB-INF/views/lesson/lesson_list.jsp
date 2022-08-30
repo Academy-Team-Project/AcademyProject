@@ -77,7 +77,7 @@
 								<input class="button" type="button" value="등록" onclick="location.href='/lesson/subject_create'">
 							<%
 								}
-							%>	
+							%>
 							</div>
 							
 						</td>

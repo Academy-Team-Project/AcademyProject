@@ -86,19 +86,31 @@
 										<td colspan="6" align="right">
 										<%
 											String sessionid = (String) session.getAttribute("sessionId");
+											String sessiontype = (String) session.getAttribute("sessionType");
 											String viewid = request.getAttribute("subjectteacherId").toString();   // controller의 Model에서 넘어온 값 빼는 방법
+											
 											if (sessionid.equals(viewid)) {
 										%>
 											<input class="button" type="button" value="수정" onclick="location.href='/lesson/subject_modify?subjectcode='+${subjectview.subjectcode}">&nbsp;&nbsp;
 											<input class="button" type="button" value="삭제" onclick="location.href='/lesson/subjectDelete?subjectcode='+${subjectview.subjectcode}">&nbsp;&nbsp;
+											<input class="button" type="button" value="목록" onclick="location.href='/lesson/lesson_list'">
 										<%
-											} else if (sessionid.equals(viewid) || sessionid.equals("admin")) {
+											} else if (sessionid.equals("admin")) {
 										%>
 											<input class="button" type="button" value="삭제" onclick="location.href='/lesson/subjectDelete?subjectcode='+${subjectview.subjectcode}">&nbsp;&nbsp;
+											<input class="button" type="button" value="목록" onclick="location.href='/lesson/lesson_list'">
+										<%		
+											} else if (sessiontype.equals("학생")) {
+										%>	
+											<input class="button" type="button" value="목록" onclick="location.href='/lesson/mylesson_list'">
+										<%
+											} else if (!sessionid.equals(viewid) && sessiontype.equals("교사")) {
+										%>		
+											<input class="button" type="button" value="목록" onclick="location.href='/lesson/lesson_list'">
 										<%		
 											}
 										%>	
-											<input class="button" type="button" value="목록" onclick="location.href='/lesson/lesson_list'">
+											
 										</td>
 									</tr>
 								</form>
