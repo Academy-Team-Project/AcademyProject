@@ -44,7 +44,9 @@
 										<th class="member_title" width="20%" align="left">ID</th>
 										<td class="">
 											<input class="input_box" type="text" name="memberid" value="" placeholder="5자리 이상 입력하세요" required="required"> &nbsp;&nbsp;
-										<!-- <input class="button" type="button" value="중복체크" onclick="memberidCheck()">  -->
+											<!-- <input class="button" type="button" value="중복체크" onclick="memberidCheck()">  -->
+											<br>
+											<p class="memberid_info"> (학생: 10000001~, 교사: 20000001~, 직원: 30000001~) </p>
 										</td>
 									</tr>
 									

@@ -46,6 +46,10 @@ p {
 	margin-bottom: 30px;
 }
 
+.memberid_info {
+	color: silver;
+	font-size: 10px;
+}
 
 .subject_info {
 	color: silver;
