@@ -32,14 +32,14 @@
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
 						<h2>개 설 과 정</h2> <br><br>
-						<form action="board_list">
+						<form action="/lesson/lesson_list">
 							<div class="search" align="right">
 						        <select name="searchOption">
 						            <option value="subjectname">수업명</option>
 						            <option value="teacher">담당교사</option>
 								</select> 
 								<input type="text" name="searchKeyword">
-								<input class="button" type="button" value="Search" onclick="location.href=''">
+								<input class="button" type="submit" value="Search">
 							</div>
 					    </form>
 							<table width="85%" height="70%" border="1" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->

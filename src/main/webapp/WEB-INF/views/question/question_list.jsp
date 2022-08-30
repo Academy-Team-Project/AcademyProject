@@ -31,7 +31,7 @@
 					<td align="center" bgcolor="#FFFFFF">  
 					<br><br>
 						<h2>질 문 게 시 판</h2> <br><br>
-						<form action="board_list">
+						<form action="/question/question_list">
 							<div class="search" align="right">
 						        <select name="searchOption">
 						            <option value="title">제목</option>
@@ -39,7 +39,7 @@
 						            <option value="name">글쓴이</option>
 								</select> 
 								<input type="text" name="searchKeyword">
-								<input class="button" type="button" value="Search" onclick="location.href=''">
+								<input class="button" type="submit" value="Search">
 							</div>
 					    </form>
 							<table width="85%" height="70%" border="1" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
