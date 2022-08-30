@@ -58,7 +58,8 @@ public class BoardController {
 		return "/notice/notice_list";
 	}	
 	
-	
+
+//  공지사항 작성	
 	@RequestMapping (value = "/notice/notice_write")
 	public String notice_write(HttpServletRequest request, Model model) {
 		
@@ -80,7 +81,8 @@ public class BoardController {
 		return "/notice/notice_write";
 	}
 	
-	
+
+//	공지사항 작성 완료	
 	@RequestMapping (value = "/notice/notice_writeOk", method = RequestMethod.POST)
 	public String notice_writeOk(HttpServletRequest request, Model model) {
 	
@@ -98,7 +100,8 @@ public class BoardController {
 		return "redirect:notice_list";
 	}
 	
-	
+
+//	공지사항 내용 보기	
 	@RequestMapping (value = "/notice/notice_view")
 	public String notice_view(HttpServletRequest request, Model model) {
 		
@@ -116,7 +119,7 @@ public class BoardController {
 		return "/notice/notice_view";
 	}
 	
-	// 공지사항 수정
+//	공지사항 수정
 	@RequestMapping (value = "/notice/notice_modify")
 	public String notice_modify(HttpServletRequest request, Model model) {
 		
@@ -136,7 +139,7 @@ public class BoardController {
 		return "/notice/notice_modify";		
 	}
 	
-	// 공지사항 수정 완료
+//	공지사항 수정 완료
 	@RequestMapping (value = "/notice/notice_modifyOk")
 	public String notice_modifyOk(HttpServletRequest request, Model model) {
 		
@@ -155,7 +158,7 @@ public class BoardController {
 		return "/notice/notice_modifyOk";
 	}
 	
-	
+//	공지사항 삭제	
 	@RequestMapping (value = "/notice/noticeDelete")
 	public String noticeDelete(HttpServletRequest request, Model model) {
 		
@@ -168,9 +171,15 @@ public class BoardController {
 		return "redirect:notice_list";
 	}
 	
+
 	
 	
-	// 질문게시판 메뉴로 이동하는 화면 반환
+//=====================================================================================================	
+	
+	
+	
+	
+//		 질문게시판 메뉴로 이동하는 화면 반환
 		@RequestMapping (value = "/question/question_list")
 		public String question_list(HttpServletRequest request, Model model) {
 			

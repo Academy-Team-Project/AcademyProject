@@ -21,8 +21,9 @@ public class LessonController {
 	
 	@Autowired		// 자동 bean 생성 및 주입, 자동 초기화
 	private SqlSession sqlSession;
+
 	
-	
+// 수업관리 메뉴를 선택하면 동작하는 화면 반환
 	@RequestMapping (value = "/lesson/lesson_list")
 	public String lesson_list(HttpServletRequest request, Model model) {
 		
@@ -50,10 +51,10 @@ public class LessonController {
 		
 		
 		return "/lesson/lesson_list";
-	}	// 수업관리 메뉴를 선택하면 동작하는 화면 반환
+	}	
 	
 	
-	
+// 수업 개설	
 	@RequestMapping (value = "/lesson/subject_create")
 	public String subject_create(HttpServletRequest request, Model model) {
 		
@@ -76,7 +77,7 @@ public class LessonController {
 	}
 	
 	
-	
+// 수업 개설 완료	
 	@RequestMapping (value = "/lesson/subject_createOk", method = RequestMethod.POST)
 	public String subject_createOk(HttpServletRequest request, Model model){
 		
@@ -101,6 +102,7 @@ public class LessonController {
 	}
 	
 	
+//  개설된 수업 내용 보기	
 	@RequestMapping (value = "/lesson/subject_view")
 	public String subject_view(HttpServletRequest request, Model model) {
 		
@@ -117,7 +119,8 @@ public class LessonController {
 		return "/lesson/subject_view";
 	}
 	
-	
+
+//	수업 내용 수정	
 	@RequestMapping (value = "/lesson/subject_modify")
 	public String subject_modify(HttpServletRequest request, Model model) {
 		
@@ -133,7 +136,8 @@ public class LessonController {
 		return "/lesson/subject_modify";
 	}
 	
-	
+
+//	수업 내용 수정 완료	
 	@RequestMapping (value = "/lesson/subject_modifyOk")
 	public String subject_modifyOk(HttpServletRequest request, Model model) {
 		
@@ -155,7 +159,8 @@ public class LessonController {
 		return "/lesson/subject_modifyOk";
 	}
 	
-	
+
+//	수업 삭제	
 	@RequestMapping (value = "/lesson/subjectDelete")
 	public String subjectDelete(HttpServletRequest request, Model model) {
 		
@@ -167,6 +172,10 @@ public class LessonController {
 		
 		return "redirect:lesson_list";
 	}
+	
+
+	
+//==========================================================================================	
 	
 	
 	

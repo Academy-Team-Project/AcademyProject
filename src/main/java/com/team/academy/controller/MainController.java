@@ -23,20 +23,23 @@ public class MainController {
 	@Autowired		// 자동 bean 생성 및 주입, 자동 초기화
 	private SqlSession sqlSession;
 	
+	
+	// 처음 서버 들어오자마자 동작하는 화면 반환
 	@RequestMapping (value = "/")
 	public String login() {
 		
 		return "index";
-	}	// 처음 서버 들어오자마자 동작하는 화면 반환
+	}	
 	
 	
+	// 링크로 동작하는 화면 반환
 	@RequestMapping (value = "/index")
 	public String index() {
 		
 		return "index";
-	}	// 링크로 동작하는 화면 반환
+	}	
 	
-	
+	// 로그인 완료 (회원타입, 아이디, 비밀번호 모두 일치해야 가능)
 	@RequestMapping (value = "/memberLoginOk", method = RequestMethod.POST)
 	public String loginOk(HttpServletRequest request, Model model) {
 		
@@ -104,6 +107,7 @@ public class MainController {
 	}
 	
 	
+	// 개인정보취급방침 팝업창
 	@RequestMapping (value = "include/policy")
 	public String policy() {
 		
@@ -111,6 +115,7 @@ public class MainController {
 	}
 	
 	
+	// 로그아웃
 	@RequestMapping (value = "/logout")
 	public String logout(HttpSession session) {
 		
@@ -120,6 +125,7 @@ public class MainController {
 	}
 	
 	
+	// 비회원으로 들어간 경우
 	@RequestMapping (value = "/nonmember_enter")
 	public String nonmember_enter() {
 		
@@ -127,6 +133,7 @@ public class MainController {
 	}
 	
 	
+	// 학원 소개
 	@RequestMapping (value = "/academy_introduction")
 	public String academy_introduction() {
 		
@@ -134,6 +141,7 @@ public class MainController {
 	}
 	
 	
+	// 오시는길
 	@RequestMapping (value = "/academy_location")
 	public String academy_location() {
 		

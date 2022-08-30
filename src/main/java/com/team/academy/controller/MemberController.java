@@ -154,7 +154,7 @@ public class MemberController {
 		return "/member/memberView";
 	}
 	
-	
+	// 회원 삭제
 	@RequestMapping (value = "/member/memberDelete")
 	public String memberDelete(HttpServletRequest request, Model model) {
 		
