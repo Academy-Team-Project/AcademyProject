@@ -81,11 +81,17 @@
 									</c:forEach>
 								</tbody>
 							</table>
-							<div align="right" class="board_inputbox">	
-								 <input class="button" type="button" value="등록" onclick="location.href='/question/question_write'">
-								 
-								
-							</div>
+							<div align="right" class="board_inputbox">
+			                     <%
+			                        String sessiontype = (String) session.getAttribute("sessionType");
+			                        if(sessiontype.equals("학생")){
+			                     %>   
+			                         <input class="button" type="button" value="등록" onclick="location.href='/question/question_write'">
+			                     <%
+			                        }
+			                     %>
+			                        
+			            	</div>
 						</td>
 					</tr>
 			</table>
