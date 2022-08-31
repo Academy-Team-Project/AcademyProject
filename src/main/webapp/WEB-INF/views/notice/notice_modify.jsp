@@ -29,7 +29,7 @@
 			<table width="80%" height="80%" cellspacing="0" border="0" cellpadding="10" class="notice_table"> 
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
-						<h2>공지사항 보기</h2> <br><br>
+						<h2>공지사항 수정</h2> <br><br>
 							<table width="85%" height="70%" border="0" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
 								<form action="notice_modifyOk"  method="post" name="notice_write_form">
 									<input type="hidden" name="noticenum" value="${noticeDto.noticenum }"> <!-- 화면에는 숨긴 값 -->

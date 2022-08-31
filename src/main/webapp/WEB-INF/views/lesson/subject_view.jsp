@@ -29,7 +29,7 @@
 			<table width="80%" height="80%" cellspacing="0" border="0" cellpadding="10" class="subject_table"> 
 				<tr>
 					<td align="center" bgcolor="#FFFFFF">  
-						<h2>수 업 등 록</h2> <br><br>
+						<h2>강 의 내 용</h2> <br><br>
 							<table width="85%" height="70%" border="0" cellspacing="0" cellpadding="5"> <!-- width 값으로 크기 고정 -->
 								<form action="subject_modify" name="subject_create_form"  method="post">
 									
