@@ -91,10 +91,15 @@
 											<input class="button" type="button" value="수정" onclick="location.href='/member/memberModify'">&nbsp;&nbsp;
 											 
 										<%
+											} else if (sessionid.equals("admin")) {
+										%>	
+											<input class="button" type="button" value="삭제" onclick="location.href='/member/memberDelete?memberid='+${memberDto.memberid }">&nbsp;&nbsp;
+										<%
 											}
-										%>	 
-											<input class="button" type="button" value="목록" onclick="location.href='/member/member_list'">&nbsp;&nbsp;
-											<input class="button" type="button" value="삭제" onclick="location.href='/member/memberDelete?memberid='+${memberDto.memberid }">
+										%> 
+											<input class="button" type="button" value="목록" onclick="location.href='/member/member_list'">&nbsp;&nbsp;	
+											
+											
 										</td>
 									</tr>
 								</form>
