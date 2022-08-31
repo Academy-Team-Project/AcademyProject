@@ -66,8 +66,9 @@
 										<td colspan="2" align="right">
 										<%
 											String sessionid = (String) session.getAttribute("sessionId");
+											String sessiontype = (String) session.getAttribute("sessionType");
 											String viewid = request.getAttribute("noticeviewId").toString();   // controller의 Model에서 넘어온 값 빼는 방법
-											if (sessionid.equals(viewid) || sessionid.equals("admin")) {
+											if (sessionid.equals(viewid) || sessiontype.equals("직원")) {
 										%>
 											<input class="button" type="button" value="수정" onclick="location.href='/notice/notice_modify?noticenum='+${noticeview.noticenum}">&nbsp;
 											<input class="button" type="button" value="삭제" onclick="location.href='/notice/noticeDelete?noticenum='+${noticeview.noticenum}">&nbsp;
