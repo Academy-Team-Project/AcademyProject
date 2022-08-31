@@ -80,8 +80,15 @@
 								</tbody>
 								
 							</table>
-							<div align="right" class="board_inputbox">	
+							<div align="right" class="board_inputbox">
+							<%
+								String sessionid = (String) session.getAttribute("sessionId");
+								if (sessionid.equals("admin")) {
+							%>	
 								<input class="button" type="button" value="등록" onclick="location.href='/member/memberJoin'">
+							<%
+								}
+							%>	
 								<input class="button" type="button" value="새로고침" onclick="location.href='/member/member_list'">
 							</div>
 							
